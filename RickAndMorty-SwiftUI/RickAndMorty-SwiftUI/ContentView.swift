@@ -8,17 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    let characterListView: CharacterListView
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        characterListView
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(characterListView: CharacterListView(viewModel: .preview))
 }
