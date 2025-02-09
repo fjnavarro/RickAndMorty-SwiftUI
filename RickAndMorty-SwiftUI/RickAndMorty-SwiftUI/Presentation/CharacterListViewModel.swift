@@ -9,14 +9,16 @@ import Foundation
 
 final class CharacterListViewModel: ObservableObject {
     private let getAllCharactersUseCase: GetAllCharactersUseCaseType
+    let downloadImageUseCase: DownloadCharacterImageUseCaseType
     private let errorMapper: CharacterPresentableErrorMapper
     
     @Published var characters: [CharacterPresentable] = []
     @Published var showAlert = false
     @Published var msg = ""
     
-    init(getAllCharactersUseCase: GetAllCharactersUseCaseType, errorMapper: CharacterPresentableErrorMapper) {
+    init(getAllCharactersUseCase: GetAllCharactersUseCaseType, downloadImageUseCase: DownloadCharacterImageUseCaseType, errorMapper: CharacterPresentableErrorMapper) {
         self.getAllCharactersUseCase = getAllCharactersUseCase
+        self.downloadImageUseCase = downloadImageUseCase
         self.errorMapper = errorMapper
     }
     

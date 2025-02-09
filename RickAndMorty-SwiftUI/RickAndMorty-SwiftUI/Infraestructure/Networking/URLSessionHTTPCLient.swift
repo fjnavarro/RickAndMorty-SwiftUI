@@ -40,4 +40,19 @@ final class URLSessionHTTPCLient: HTTPClient {
             return .failure(errorResolver.resolve(error: error))
         }
     }
+    
+    func download(from url: URL) async -> Result<Data, HTTPClientError> {
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            
+            guard let httpResponse = response as? HTTPURLResponse,
+                    httpResponse.statusCode == 200 else {
+                return .failure(.responseError)
+            }
+            
+            return .success(data)
+        } catch {
+            return .failure(.unknownError)
+        }
+    }
 }

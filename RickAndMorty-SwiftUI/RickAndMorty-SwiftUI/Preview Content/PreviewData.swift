@@ -13,6 +13,7 @@ extension CharacterListViewModel {
                                                                                                                                  domainMapper: CharacterDomainMapper(),
                                                                                                                                  errorMapper: CharacterDomainErrorMapper(),
                                                                                                                                  cacheDatasource: CharacterListCacheDataSourcePreview())),
+                                                downloadImageUseCase: DownloadCharacterImageUseCasePreview(),
                                                 errorMapper: CharacterPresentableErrorMapper())
 }
 
@@ -53,6 +54,17 @@ extension LocationDTO {
 
 final class CharacterRemoteDataSourcePreview: CharacterListRemoteDataSourceType {
     func getCharacters() async -> Result<[CharacterDTO], HTTPClientError> { .success([]) }
+}
+
+final class DownloadCharacterImageUseCasePreview: DownloadCharacterImageUseCaseType {
+    func execute(url: URL) async -> Result<Data, CharacterImageError> {
+        guard let image = UIImage(named: "preview_character"),
+              let imageData = image.jpegData(compressionQuality: 1.0) else {
+            return .failure(.unknown)
+        }
+        
+        return .success(imageData)
+    }
 }
 
 final class CharacterListCacheDataSourcePreview: CharacterListCacheDataSourceType {

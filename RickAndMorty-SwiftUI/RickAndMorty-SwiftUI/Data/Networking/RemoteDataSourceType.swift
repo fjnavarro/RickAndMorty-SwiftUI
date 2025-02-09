@@ -10,3 +10,7 @@ import Foundation
 protocol CharacterListRemoteDataSourceType {
     func getCharacters() async -> Result<[CharacterDTO], HTTPClientError>
 }
+
+protocol CharacterImageRemoteDataSourceType {
+    func downloadImage(from url: URL) async -> Result<Data, HTTPClientError>
+}
