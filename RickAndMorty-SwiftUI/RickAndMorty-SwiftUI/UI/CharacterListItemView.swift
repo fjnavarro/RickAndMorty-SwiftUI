@@ -19,30 +19,20 @@ public struct CharacterListItemView: View {
         VStack {
             if let uiImage = image {
                 Image(uiImage: uiImage)
-                    .resizable()
-                    .matchedGeometryEffect(id: "character\(character.id)", in: namespace)
-                    .scaledToFill()
-                    .frame(width: big ? 250 : 150, height: big ? 420 : 230)
-                    .overlay(alignment: .bottom) {
-                        if !big {
-                            BottomNameView(name: character.name, id: character.id, namespace: namespace)
-                        }
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
+                    .characterImageStyle(width: big ? 250 : 150,
+                                         height: big ? 420 : 230,
+                                         namespace: namespace,
+                                         characterID: character.id,
+                                         characterName: character.name,
+                                         showOverlay: !big)
             } else {
                 Image(systemName: "photo")
-                    .resizable()
-                    .matchedGeometryEffect(id: "character\(character.id)", in: namespace)
-                    .scaledToFill()
-                    .frame(width: big ? 250 : 150, height: big ? 420 : 230)
-                    .overlay(alignment: .bottom) {
-                        if !big {
-                            BottomNameView(name: character.name, id: character.id, namespace: namespace)
-                        }
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(color: .black.opacity(0.3), radius: 5, x: 0, y: 5)
+                    .characterImageStyle(width: big ? 250 : 150,
+                                         height: big ? 420 : 230,
+                                         namespace: namespace,
+                                         characterID: character.id,
+                                         characterName: character.name,
+                                         showOverlay: !big)
                     .task {
                         await loadImage()
                     }

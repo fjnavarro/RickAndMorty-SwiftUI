@@ -12,8 +12,6 @@ struct CharacterListView: View {
     
     let item = GridItem(.adaptive(minimum: 150), alignment: .center)
     
-    @State var selected: CharacterPresentable?
-    
     @Namespace private var namespace
     
     init(viewModel: CharacterListViewModel) {
@@ -23,9 +21,7 @@ struct CharacterListView: View {
     var body: some View {
         ZStack {
             mainScroll
-                .opacity(selected == nil ? 1.0 : 0.0)
         }
-        .animation(.default, value: selected)
         .onAppear() {
             viewModel.onAppear()
         }
@@ -40,18 +36,9 @@ struct CharacterListView: View {
             ScrollView {
                 LazyVGrid(columns: [item]) {
                     ForEach(viewModel.characters) { character in
-                        if character != selected {
-                            CharacterListItemView(character: character,
-                                                  namespace: namespace,
-                                                  downloadImageUseCase: viewModel.downloadImageUseCase)
-                            .onTapGesture {
-                                selected = character
-                            }
-                        } else {
-                            Rectangle()
-                                .fill(.clear)
-                                .frame(width: 150, height: 230)
-                        }
+                        CharacterListItemView(character: character,
+                                              namespace: namespace,
+                                              downloadImageUseCase: viewModel.downloadImageUseCase)
                     }
                 }
                 .padding()
