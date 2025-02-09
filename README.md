@@ -36,11 +36,7 @@ The application is structured based on **Clean Architecture**, separating busine
 
 ```
 RickAndMorty-SwiftUI/
-│── Assets.xcassets/
-│   ├── AccentColor.colorset/
-│   ├── AppIcon.appiconset/
 │── CompositionRoot/
-│   ├── CharacterDetailFactory.swift
 │   ├── CharacterListFactory.swift
 │── Data/
 │   ├── Cache/
@@ -63,6 +59,9 @@ RickAndMorty-SwiftUI/
 │   ├── Repositories/
 │   │   ├── CharacterImageRepository.swift
 │   │   ├── CharacterRepository.swift
+│   ├── CharacterDomainErrorMapper.swift
+│   ├── CharacterDomainMapper.swift
+│   ├── CharacterImageErrorMapper.swift
 │── Domain/
 │   ├── Entities/
 │   │   ├── CharacterEntity.swift
@@ -89,21 +88,12 @@ RickAndMorty-SwiftUI/
 │   │   ├── URLSessionHTTPCLient.swift
 │   │   ├── URLSessionRequestMaker.swift
 │── Presentation/
-│   ├── ViewModels/
 │   │   ├── CharacterListViewModel.swift
-│   ├── Views/
 │   │   ├── CharacterListView.swift
-│   ├── Modifiers/
 │   │   ├── AlertModifier.swift
 │   │   ├── View+Modifiers.swift
-│   ├── Mappers/
 │   │   ├── CharacterPresentableErrorMapper.swift
-│   ├── Extensions/
 │── Preview Content/
-│   ├── Preview Assets.xcassets/
-│   │   ├── preview_character.imageset/
-│   │   │   ├── Contents.json
-│   │   │   ├── RickSanchez.jpeg
 │   ├── PreviewData.swift
 │── UI/
 │   ├── BottomNameView.swift
@@ -112,13 +102,6 @@ RickAndMorty-SwiftUI/
 │── Utils/
 │   ├── Foundation+Extensions.swift
 │── RickAndMorty_SwiftUIApp.swift
-│── RickAndMorty_SwiftUI.entitlements
-│── RickAndMorty_SwiftUI.xcodeproj/
-│   ├── project.pbxproj
-│   ├── project.xcworkspace/
-│   │   ├── contents.xcworkspacedata
-│   │   ├── xcshareddata/
-│   │   ├── xcuserdata/
 │── RickAndMorty-SwiftUITests/
 │   ├── Data/
 │   │   ├── CharacterDomainErrorMapperTests.swift
