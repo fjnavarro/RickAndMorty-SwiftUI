@@ -18,4 +18,8 @@ final class HTTPClientStub: HTTPClient {
     func makeRequest(endpoint: Endpoint, baseUrl: String) async -> Result<Data, HTTPClientError> {
         result
     }
+    
+    func download(from url: URL) async -> Result<Data, HTTPClientError> {
+        .failure(.unknownError)
+    }
 }
