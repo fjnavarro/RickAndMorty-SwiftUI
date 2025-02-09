@@ -14,6 +14,7 @@ final class CharacterListFactory {
     
     private static func createViewModel() -> CharacterListViewModel {
         CharacterListViewModel(getAllCharactersUseCase: createUseCase(),
+                               downloadImageUseCase: createDownloadImageUseCase(),
                                errorMapper: CharacterPresentableErrorMapper())
     }
     
@@ -39,8 +40,25 @@ final class CharacterListFactory {
     }
     
     private static func createRemoteDataSource() -> RemoteDataSource {
-        let httpClient = URLSessionHTTPCLient(requestMaker: URLSessionRequestMaker(),
-                                              errorResolver: URLSessionErrorResolver())
-        return RemoteDataSource(httpClient: httpClient)
+        RemoteDataSource(httpClient: createHttpClient())
+    }
+    
+    private static func createDownloadImageUseCase() -> DownloadCharacterImageUseCaseType {
+        DownloadCharacterImageUseCase(repository: createCharacterImageRepository())
+    }
+    
+    private static func createCharacterImageRepository() -> CharacterImageRepositoryType {
+        CharacterImageRepository(characterImageRemoteDataSource: createCharacterImageRemoteDataSource(),
+                                 cacheDataSource: CharacterImageCache(),
+                                 errorMapper: CharacterImageErrorMapper())
+    }
+    
+    private static func createCharacterImageRemoteDataSource() -> CharacterImageRemoteDataSourceType {
+        CharacterImageRemoteDataSource(httpClient: createHttpClient())
+    }
+    
+    private static func createHttpClient() -> HTTPClient {
+        URLSessionHTTPCLient(requestMaker: URLSessionRequestMaker(),
+                             errorResolver: URLSessionErrorResolver())
     }
 }

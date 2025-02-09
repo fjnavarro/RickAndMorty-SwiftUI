@@ -9,4 +9,5 @@ import Foundation
 
 protocol HTTPClient {
     func makeRequest(endpoint: Endpoint, baseUrl: String) async -> Result<Data, HTTPClientError>
+    func download(from url: URL) async -> Result<Data, HTTPClientError>
 }

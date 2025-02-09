@@ -42,7 +42,8 @@ struct CharacterListView: View {
                     ForEach(viewModel.characters) { character in
                         if character != selected {
                             CharacterListItemView(character: character,
-                                                  namespace: namespace)
+                                                  namespace: namespace,
+                                                  downloadImageUseCase: viewModel.downloadImageUseCase)
                             .onTapGesture {
                                 selected = character
                             }
