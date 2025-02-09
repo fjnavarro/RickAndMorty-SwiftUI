@@ -10,7 +10,22 @@ Additionally, the app uses **SwiftData** for local storage and **NSCache** for i
 ---
 
 ## 📸 Screenshots
-📌
+
+<a href="https://github.com/user-attachments/assets/ee5eb316-515a-4136-852f-b5c5eb6e1d36" target="_blank">
+    <img src="https://github.com/user-attachments/assets/ee5eb316-515a-4136-852f-b5c5eb6e1d36" width="400">
+</a>
+
+<a href="https://github.com/user-attachments/assets/c73f08ba-69d0-460c-913c-443770b38b30" target="_blank">
+    <img src="https://github.com/user-attachments/assets/c73f08ba-69d0-460c-913c-443770b38b30" width="400">
+</a>
+
+<a href="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" target="_blank">
+    <img src="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" width="400">
+</a>
+<br/>
+<a href="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" target="_blank">
+    <img src="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" width="800">
+</a>
 
 ---
 
@@ -194,12 +209,12 @@ GET https://rickandmortyapi.com/api/character
 ---
 
 ## 🎯 Key Features
-✅ **Character list with cached images**
-✅ **Efficient image caching with `NSCache`**  
-✅ **Local storage with `SwiftData`**  
-✅ **Error handling with `Result<T, Error>`**  
-✅ **Modular and scalable design**  
-✅ **Unit tests covering all use cases except UI tests (planned for future updates)**
+- ✅ **Character list with cached images** 
+- ✅ **Efficient image caching with `NSCache`** 
+- ✅ **Local storage with `SwiftData`**  
+- ✅ **Error handling with `Result<T, Error>`**  
+- ✅ **Modular and scalable design**  
+- ✅ **Unit tests covering all use cases except UI tests (planned for future updates)**
 
 ---
 
@@ -218,14 +233,14 @@ GET https://rickandmortyapi.com/api/character
 ---
 
 ## 🔥 Future Enhancements
-📌 **Add a use case for fetching character details**
-📌 **Implement a character detail screen displaying all character information**
-📌 **Add unit tests for the presentation layer**
-📌 **Add unit tests for the image download use case**
-📌 **Implement UI tests**
-📌 **Add pagination to the character list**
-📌 **Implement a splash screen with animations**
-📌 **Refactor API logic into a separate local Swift Package (SPM)**
+- 📌 **Add a use case for fetching character details**
+- 📌 **Implement a character detail screen displaying all character information**
+- 📌 **Add unit tests for the presentation layer**
+- 📌 **Add unit tests for the image download use case**
+- 📌 **Implement UI tests**
+- 📌 **Add pagination to the character list**
+- 📌 **Implement a splash screen with animations**
+- 📌 **Refactor API logic into a separate local Swift Package (SPM)**
 
 ---
 
