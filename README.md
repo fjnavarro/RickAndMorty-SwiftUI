@@ -27,6 +27,10 @@ Additionally, the app uses **SwiftData** for local storage and **NSCache** for i
     <img src="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" width="800">
 </a>
 
+<a href="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" target="_blank">
+    <img src="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" width="800">
+</a>
+
 ---
 
 ## 🏗 Architecture
