@@ -20,13 +20,25 @@ struct CharacterListView: View {
     
     var body: some View {
         ZStack {
-            mainScroll
+            if viewModel.loading {
+                VStack {
+                    ProgressView()
+                        .controlSize(.extraLarge)
+                    
+                    Text("Loading...")
+                        .font(.rmLoadingText)
+                        .foregroundStyle(.gray)
+                        .padding(.top, 10)
+                }
+            } else {
+                mainScroll
+            }
         }
         .onAppear() {
             viewModel.onAppear()
         }
         .refreshable() {
-            viewModel.onAppear()
+            viewModel.refreshData()
         }
         .customAlert(message: viewModel.msg, showAlert: $viewModel.showAlert)
     }
@@ -48,6 +60,12 @@ struct CharacterListView: View {
     }
 }
 
-#Preview {
+#Preview ("Light mode"){
     CharacterListView(viewModel: .preview)
+        .preferredColorScheme(.light)
+}
+
+#Preview ("Dark mode"){
+    CharacterListView(viewModel: .preview)
+        .preferredColorScheme(.dark)
 }

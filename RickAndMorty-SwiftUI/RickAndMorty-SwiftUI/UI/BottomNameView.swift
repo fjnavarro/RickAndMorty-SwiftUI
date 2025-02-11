@@ -19,10 +19,9 @@ struct BottomNameView: View {
             .overlay(alignment: .top) {
                 VStack {
                     Text(name)
-                        .font(.caption)
+                        .font(.rmCharacterName)
                         .matchedGeometryEffect(id: "name\(id)", in: namespace)
                         .foregroundStyle(.black)
-                        .bold()
                         .lineLimit(2)
                         .minimumScaleFactor(0.7)
                         .multilineTextAlignment(.center)

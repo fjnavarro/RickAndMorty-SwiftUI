@@ -20,19 +20,23 @@ struct AlertModifier: ViewModifier {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(.black.opacity(0.5))
                     
-                    VStack {
+                    VStack(spacing: 16) {
                         Text(message)
+                            .font(.rmAlertTitle)
+                            .foregroundStyle(.black)
                             .multilineTextAlignment(.center)
-                        HStack {
+                        HStack(spacing: 12) {
                             Button(role: .cancel) {
                                 showAlert.toggle()
                             } label: {
                                 Text("Cancel")
+                                    .font(.rmAlertButton)
                             }
                             Button {
                                 showAlert.toggle()
                             } label: {
                                 Text("OK")
+                                    .font(.rmAlertButton)
                             }
                         }
                     }
@@ -51,4 +55,14 @@ struct AlertModifier: ViewModifier {
             }
         
     }
+}
+
+#Preview ("Light mode"){
+    return AlertModifierPreview()
+        .preferredColorScheme(.light)
+}
+
+#Preview ("Dark mode"){    
+    return AlertModifierPreview()
+        .preferredColorScheme(.dark)
 }
