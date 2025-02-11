@@ -56,22 +56,34 @@ final class CharacterRepositoryTests: XCTestCase {
         XCTAssertEqual(cacheDataSource.cachedCharacterList, expectedCharacterList)
     }
     
-    /// Ensures that `getCharacters` returns a failure when the cache is empty and the API request fails.
-    func test_getCharacters_returns_failure_when_cache_is_empty_and_apiDataSource_fails() async {
+    /// Ensures that `getCharacters` correctly maps all HTTPClientError cases to CharacterDomainError.
+    func test_getCharacters_returns_correct_error_for_all_httpClientErrors() async {
         // GIVEN
-        let (sut, _) = makeSUT(remoteDataSourceResult: .failure(.clientError),
-                               cachedValue: [])
+        let errorsToTest: [(HTTPClientError, CharacterDomainError)] = [
+            (.clientError, .invalidResponse),
+            (.responseError, .invalidResponse),
+            (.decodingError, .decodingFailed),
+            (.serverError, .generic),
+            (.invalidURL, .generic),
+            (.unknownError, .generic),
+            (.tooManyRequests, .tooManyRequests)
+        ]
         
-        // WHEN
-        let result = await sut.getCharacters()
-        
-        // THEN
-        guard case .failure(let error) = result else {
-            XCTFail("Expected failure, got success")
-            return
+        for (httpError, expectedDomainError) in errorsToTest {
+            let (sut, _) = makeSUT(remoteDataSourceResult: .failure(httpError),
+                                   cachedValue: [])
+
+            // WHEN
+            let result = await sut.getCharacters()
+
+            // THEN
+            guard case .failure(let error) = result else {
+                XCTFail("Expected failure for \(httpError), got success")
+                return
+            }
+
+            XCTAssertEqual(error, expectedDomainError, "Failed for HTTP error: \(httpError)")
         }
-        
-        XCTAssertEqual(error, .generic)
     }
     
     /// Ensures that when both cache and API return an empty list, the method returns an empty list successfully.

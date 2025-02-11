@@ -27,6 +27,10 @@ Additionally, the app uses **SwiftData** for local storage and **NSCache** for i
     <img src="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" width="800">
 </a>
 
+<a href="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" target="_blank">
+    <img src="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" width="800">
+</a>
+
 ---
 
 ## 🏗 Architecture
@@ -94,11 +98,13 @@ RickAndMorty-SwiftUI/
 │   │   ├── View+Modifiers.swift
 │   │   ├── CharacterPresentableErrorMapper.swift
 │── Preview Content/
+│   ├── ModifierPreview.swift
 │   ├── PreviewData.swift
 │── UI/
 │   ├── BottomNameView.swift
 │   ├── CharacterListItemView.swift
 │   ├── Image+Styles.swift
+│   ├── Font+Styles.swift
 │── Utils/
 │   ├── Foundation+Extensions.swift
 │── RickAndMorty_SwiftUIApp.swift
@@ -125,7 +131,7 @@ RickAndMorty-SwiftUI/
 │   ├── Infraestructure/
 │   │   ├── PersistentCharacterListCacheDataSourceTests.swift
 │   ├── Utils/
-│   │   ├── ResultExtensionTests.swift
+│   │   ├── Foundation+Extensions.swift
 ```
 
 ✅ **Composition Root (`CompositionRoot`)**  
@@ -151,10 +157,43 @@ Extensions and utilities to support the application.
 
 ---
 
+### 🎨 UI Customization
+
+The project includes **custom font styles** to ensure a consistent and visually appealing design:
+
+```swift
+extension Font {
+    static let rmCharacterName = Font.system(.caption, design: .rounded)
+        .weight(.bold)
+    
+    static let rmLoadingText = Font.system(.headline, design: .rounded)
+        .weight(.semibold)
+    
+    static let rmAlertTitle = Font.system(.title3, design: .rounded)
+        .weight(.bold)
+    
+    static let rmAlertButton = Font.system(.body, design: .rounded)
+        .weight(.semibold)
+}
+```
+
+These styles are applied across the UI:
+
+- **rmCharacterName**: Used for character names in the character list.
+- **rmLoadingText**: Used for the "Loading..." text in loading states.
+- **rmAlertTitle**: Used for alert titles.
+- **rmAlertButton**: Used for alert action buttons.
+    
+---
+
 ### 📱 SwiftUI Previews  
 All **SwiftUI views** include **previews with mock data** to facilitate real-time editing within **Xcode Canvas**.
 
 This allows working visually without needing to run the app on a simulator or device, speeding up development and improving the design experience.
+
+Additionally:
+- ✅ **Previews are available in both Light Mode and Dark Mode** for necessary cases, ensuring proper UI adaptation.
+- ✅ **The AlertModifier also includes a preview**, allowing for easy visualization and adjustments of the custom alert component.
 
 #### Example of a **SwiftUI Preview**:
 

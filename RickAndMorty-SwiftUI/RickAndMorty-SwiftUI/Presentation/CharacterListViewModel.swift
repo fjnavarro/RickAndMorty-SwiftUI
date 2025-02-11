@@ -15,6 +15,7 @@ final class CharacterListViewModel: ObservableObject {
     @Published var characters: [CharacterPresentable] = []
     @Published var showAlert = false
     @Published var msg = ""
+    @Published var loading = false
     
     init(getAllCharactersUseCase: GetAllCharactersUseCaseType, downloadImageUseCase: DownloadCharacterImageUseCaseType, errorMapper: CharacterPresentableErrorMapper) {
         self.getAllCharactersUseCase = getAllCharactersUseCase
@@ -23,24 +24,38 @@ final class CharacterListViewModel: ObservableObject {
     }
     
     func onAppear() {
+        self.loading = true
+        
         Task {
-            let result = await getAllCharactersUseCase.execute()
-            
-            guard case .success(let characters) = result else {
-                await handleError(error: result.failureValue as? CharacterDomainError)
-                return
-            }
-            
-            let charactersPortable = characters.map { CharacterPresentable(domainModel: $0) }
-            
-            await MainActor.run {
-                self.characters = charactersPortable
-            }
+            await fetchCharacters()
+        }
+    }
+    
+    func refreshData() {
+        Task {
+            await fetchCharacters()
+        }
+    }
+    
+    private func fetchCharacters() async {
+        let result = await getAllCharactersUseCase.execute()
+        
+        guard case .success(let characters) = result else {
+            await handleError(error: result.failureValue as? CharacterDomainError)
+            return
+        }
+        
+        let charactersPortable = characters.map { CharacterPresentable(domainModel: $0) }
+        
+        await MainActor.run {
+            self.loading = false
+            self.characters = charactersPortable
         }
     }
     
     private func handleError(error: CharacterDomainError?) async {
         await MainActor.run {
+            self.loading = false
             self.showAlert = true
             self.msg = errorMapper.map(error: error)
         }
