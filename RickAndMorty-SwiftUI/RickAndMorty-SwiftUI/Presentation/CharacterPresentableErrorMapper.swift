@@ -8,18 +8,18 @@
 import Foundation
 
 final class CharacterPresentableErrorMapper {
-    func map(error: CharacterDomainError?) -> String {
+    func map(error: CharacterDomainError?) -> LocalizedStringResource {
         switch error {
         case .generic:
-            return "An unexpected error occurred. Please try again."
+            return LocalizedErrorKey.generic.localized
         case .invalidResponse:
-            return "Invalid response from the server. Please check your connection."
+            return LocalizedErrorKey.invalidResponse.localized
         case .decodingFailed:
-            return "Failed to process the data. Please try again later."
+            return LocalizedErrorKey.decodingFailed.localized
         case .tooManyRequests:
-            return "Too many requests. Please wait and try again later."
+            return LocalizedErrorKey.tooManyRequests.localized
         case .none:
-            return "An unknown error occurred."
+            return LocalizedErrorKey.unknown.localized
         }
     }
 }

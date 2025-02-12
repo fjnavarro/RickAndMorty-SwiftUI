@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AlertModifier: ViewModifier {
-    let message: String
+    let message: LocalizedStringResource
     
     @Binding var showAlert: Bool
     
@@ -29,13 +29,13 @@ struct AlertModifier: ViewModifier {
                             Button(role: .cancel) {
                                 showAlert.toggle()
                             } label: {
-                                Text("Cancel")
+                                Text("Cancel", comment: "Button to dismiss the alert without taking action.")
                                     .font(.rmAlertButton)
                             }
                             Button {
                                 showAlert.toggle()
                             } label: {
-                                Text("OK")
+                                Text("OK", comment: "Button to confirm and close the alert.")
                                     .font(.rmAlertButton)
                             }
                         }

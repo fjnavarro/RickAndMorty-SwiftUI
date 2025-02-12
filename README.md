@@ -9,31 +9,25 @@ Additionally, the app uses **SwiftData** for local storage and **NSCache** for i
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshots & Previews
 
-<a href="https://github.com/user-attachments/assets/ee5eb316-515a-4136-852f-b5c5eb6e1d36" target="_blank">
-    <img src="https://github.com/user-attachments/assets/ee5eb316-515a-4136-852f-b5c5eb6e1d36" width="400">
-</a>
+| App Screenshots | App Screenshots | Tests |
+|----------------|----------------|----------------|
+| <a href="https://github.com/user-attachments/assets/ee5eb316-515a-4136-852f-b5c5eb6e1d36" target="_blank"><img src="https://github.com/user-attachments/assets/ee5eb316-515a-4136-852f-b5c5eb6e1d36" width="400"></a> | <a href="https://github.com/user-attachments/assets/c73f08ba-69d0-460c-913c-443770b38b30" target="_blank"><img src="https://github.com/user-attachments/assets/c73f08ba-69d0-460c-913c-443770b38b30" width="400"></a> | <a href="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" target="_blank"><img src="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" width="400"></a> |
 
-<a href="https://github.com/user-attachments/assets/c73f08ba-69d0-460c-913c-443770b38b30" target="_blank">
-    <img src="https://github.com/user-attachments/assets/c73f08ba-69d0-460c-913c-443770b38b30" width="400">
-</a>
+| Code Coverage | SQLite Data (CoreData Cache) |
+|--------------|----------------------|
+| <a href="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" target="_blank"><img src="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" width="800"></a> | <a href="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" target="_blank"><img src="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" width="800"></a> |
 
-<a href="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" target="_blank">
-    <img src="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" width="400">
-</a>
-<br/>
-<a href="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" target="_blank">
-    <img src="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" width="800">
-</a>
+| Localized Preview (EN & ES, Dark & Light) |
+|------------------------------------------|
+| ![toGif](https://github.com/user-attachments/assets/871d093e-a5a8-49c1-b911-c04c2bfad6b5) |
 
-<a href="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" target="_blank">
-    <img src="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" width="800">
-</a>
 
 ---
 
 ## 🏗 Architecture
+
 The application is structured based on **Clean Architecture**, separating business logic from infrastructure and UI layers.
 
 ### 📂 Project Structure:
@@ -97,6 +91,7 @@ RickAndMorty-SwiftUI/
 │   │   ├── AlertModifier.swift
 │   │   ├── View+Modifiers.swift
 │   │   ├── CharacterPresentableErrorMapper.swift
+│   │   ├── LocalizedErrorKey.swift
 │── Preview Content/
 │   ├── ModifierPreview.swift
 │   ├── PreviewData.swift
@@ -107,6 +102,9 @@ RickAndMorty-SwiftUI/
 │   ├── Font+Styles.swift
 │── Utils/
 │   ├── Foundation+Extensions.swift
+│── Localizations/
+│   │   ├── Localizable.xcstrings
+│   │   ├── RickAndMorty-SwiftUI-InfoPlist.xcstrings
 │── RickAndMorty_SwiftUIApp.swift
 │── RickAndMorty-SwiftUITests/
 │   ├── Data/
@@ -186,13 +184,15 @@ These styles are applied across the UI:
     
 ---
 
-### 📱 SwiftUI Previews  
+### 📱 SwiftUI Previews
+
 All **SwiftUI views** include **previews with mock data** to facilitate real-time editing within **Xcode Canvas**.
 
 This allows working visually without needing to run the app on a simulator or device, speeding up development and improving the design experience.
 
 Additionally:
 - ✅ **Previews are available in both Light Mode and Dark Mode** for necessary cases, ensuring proper UI adaptation.
+- ✅ **Localized previews**: Developers can test how the UI adapts to different languages (English & Spanish) in real-time.
 - ✅ **The AlertModifier also includes a preview**, allowing for easy visualization and adjustments of the custom alert component.
 
 #### Example of a **SwiftUI Preview**:
@@ -200,12 +200,14 @@ Additionally:
 ```swift
 #Preview {
     CharacterListView(viewModel: .preview)
+        .environment(\.locale, .init(identifier: "es")) // Example for Spanish preview
 }
 ```
 
 ---
 
 ## 🛠 Technologies and Tools
+
 - ✅ **Swift 5.9+**
 - ✅ **SwiftUI**
 - ✅ **Combine for data binding**
@@ -219,7 +221,21 @@ Additionally:
 
 ---
 
+## 🌍 Localization Support
+
+The application supports multiple languages (English and Spanish) using Apple’s latest localization technology: String Catalogs.
+
+- ✅ **Localized App Name and UI Elements**: The app dynamically adjusts its name and UI texts based on the selected language.
+- ✅ **Error Messages and System Alerts**: All user-facing error messages are fully localized for a better user experience.
+- ✅ **Seamless Integration with Xcode**: Using String Catalogs ensures an easy and efficient way to manage and expand localization.
+- ✅ **Future Language Support**: Additional languages can be easily added without modifying the core codebase.
+
+🔗 [Apple WWDC23: String Catalogs Overview](https://developer.apple.com/videos/play/wwdc2023/10155/)
+
+---
+
 ## 📡 API Used
+
 This application consumes the **Rick and Morty API**:
 🔗 [https://rickandmortyapi.com](https://rickandmortyapi.com)
 
@@ -231,6 +247,7 @@ GET https://rickandmortyapi.com/api/character
 ---
 
 ## 🎯 Key Features
+
 - ✅ **Character list with cached images** 
 - ✅ **Efficient image caching with `NSCache`** 
 - ✅ **Local storage with `SwiftData`**  
@@ -241,11 +258,15 @@ GET https://rickandmortyapi.com/api/character
 ---
 
 ## 🏗 How to Run the Project
+
 1. **Clone the repository**  
    ```bash
    git clone https://github.com/your-username/RickAndMorty-SwiftUI.git
-   cd RickAndMorty-SwiftUI
    ```
+   
+    ```bash
+    cd RickAndMorty-SwiftUI
+    ```
 2. **Open in Xcode**  
    📂 Open `RickAndMorty_SwiftUI.xcodeproj` in Xcode.
 3. **Build and Run**  
@@ -255,6 +276,7 @@ GET https://rickandmortyapi.com/api/character
 ---
 
 ## 🔥 Future Enhancements
+
 - 📌 **Add a use case for fetching character details**
 - 📌 **Implement a character detail screen displaying all character information**
 - 📌 **Add unit tests for the presentation layer**
@@ -267,4 +289,5 @@ GET https://rickandmortyapi.com/api/character
 ---
 
 ## 👨‍💻 Author
+
 💡 _Developed by_ **Francisco José Navarro García**  
