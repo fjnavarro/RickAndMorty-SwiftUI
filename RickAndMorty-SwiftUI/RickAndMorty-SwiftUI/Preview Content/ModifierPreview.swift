@@ -11,8 +11,9 @@ struct AlertModifierPreview: View {
     @State private var showAlert = true
     
     var body: some View {
-        Text("Hello World!")
-            .modifier(AlertModifier(message: "Hello, World!",
+        Text("Hello World!", comment: "This text is only used for SwiftUI previews and should not be considered for localization.")
+            .modifier(AlertModifier(message: LocalizedStringResource("Hello, World!",
+                                                                     comment: "This text is only used for SwiftUI previews and should not be considered for localization."),
                                     showAlert: $showAlert))
     }
 }

@@ -14,7 +14,7 @@ final class CharacterListViewModel: ObservableObject {
     
     @Published var characters: [CharacterPresentable] = []
     @Published var showAlert = false
-    @Published var msg = ""
+    @Published var msg: LocalizedStringResource = LocalizedErrorKey.unknown.localized
     @Published var loading = false
     
     init(getAllCharactersUseCase: GetAllCharactersUseCaseType, downloadImageUseCase: DownloadCharacterImageUseCaseType, errorMapper: CharacterPresentableErrorMapper) {

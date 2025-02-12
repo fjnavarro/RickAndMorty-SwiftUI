@@ -1,0 +1,167 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Cancel" : {
+      "comment" : "Button to dismiss the alert without taking action.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        }
+      }
+    },
+    "ERROR_CHARACTER_DECODING_FAILED" : {
+      "comment" : "Shown when the app fails to parse the response data.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to process the data. Please try again later."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo procesar los datos. Por favor, intenta más tarde."
+          }
+        }
+      }
+    },
+    "ERROR_CHARACTER_GENERIC" : {
+      "comment" : "Generic error message shown when an unknown issue occurs.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unexpected error occurred. Please try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocurrió un error inesperado. Por favor, intenta de nuevo."
+          }
+        }
+      }
+    },
+    "ERROR_CHARACTER_INVALID_RESPONSE" : {
+      "comment" : "Shown when the server returns an unexpected response.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid response from the server. Please check your connection."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respuesta inválida del servidor. Por favor, verifica tu conexión."
+          }
+        }
+      }
+    },
+    "ERROR_CHARACTER_TOO_MANY_REQUESTS" : {
+      "comment" : "Displayed when the user sends too many requests in a short time.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many requests. Please wait and try again later."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demasiadas solicitudes. Por favor, espera e intenta más tarde."
+          }
+        }
+      }
+    },
+    "ERROR_CHARACTER_UNKNOWN" : {
+      "comment" : "Fallback error message for undefined issues.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error occurred."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ocurrió un error desconocido."
+          }
+        }
+      }
+    },
+    "Hello World!" : {
+      "comment" : "This text is only used for SwiftUI previews and should not be considered for localization.",
+      "shouldTranslate" : false
+    },
+    "Hello, World!" : {
+      "comment" : "This text is only used for SwiftUI previews and should not be considered for localization.",
+      "shouldTranslate" : false
+    },
+    "Loading..." : {
+      "comment" : "Displayed while data is being fetched.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading..."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando…"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "comment" : "Button to confirm and close the alert.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aceptar"
+          }
+        }
+      }
+    },
+    "Rick and Morty" : {
+      "comment" : "Navigation bar title for the character list screen.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rick and Morty"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rick y Morty"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

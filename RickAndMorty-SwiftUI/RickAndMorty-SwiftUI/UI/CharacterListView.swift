@@ -25,7 +25,7 @@ struct CharacterListView: View {
                     ProgressView()
                         .controlSize(.extraLarge)
                     
-                    Text("Loading...")
+                    Text("Loading...", comment: "Displayed while data is being fetched.")
                         .font(.rmLoadingText)
                         .foregroundStyle(.gray)
                         .padding(.top, 10)
@@ -55,17 +55,31 @@ struct CharacterListView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Rick and Morty")
+            .navigationTitle(Text("Rick and Morty", comment: "Navigation bar title for the character list screen."))
         }
     }
 }
 
-#Preview ("Light mode"){
+#Preview ("Light mode - EN"){
     CharacterListView(viewModel: .preview)
         .preferredColorScheme(.light)
+        .environment(\.locale, Locale(identifier: "en"))
 }
 
-#Preview ("Dark mode"){
+#Preview ("Dark mode - EN"){
     CharacterListView(viewModel: .preview)
         .preferredColorScheme(.dark)
+        .environment(\.locale, Locale(identifier: "en"))
+}
+
+#Preview ("Light mode - ES"){
+    CharacterListView(viewModel: .preview)
+        .preferredColorScheme(.light)
+        .environment(\.locale, Locale(identifier: "es"))
+}
+
+#Preview ("Dark mode - ES"){
+    CharacterListView(viewModel: .preview)
+        .preferredColorScheme(.dark)
+        .environment(\.locale, Locale(identifier: "es"))
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    func customAlert(message: String, showAlert: Binding<Bool>) -> some View {
+    func customAlert(message: LocalizedStringResource, showAlert: Binding<Bool>) -> some View {
         modifier(AlertModifier(message: message, showAlert: showAlert))
     }
 }
