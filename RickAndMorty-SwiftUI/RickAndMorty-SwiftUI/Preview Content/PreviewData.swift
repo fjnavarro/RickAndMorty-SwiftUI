@@ -8,6 +8,15 @@
 import Foundation
 import UIKit
 
+extension CharacterDetailViewModel {
+    static let preview = CharacterDetailViewModel(character: .preview,
+                                                  getCharacterDetailUseCase: GetCharacterDetailUseCase(repository: CharacterDetailRepository(characterDetailRemoteDataSource: CharacterDetailRemoteDataSourcePreview(),
+                                                                                                                                             domainMapper: CharacterDomainMapper(),
+                                                                                                                                             errorMapper: CharacterDomainErrorMapper())),
+                                                  downloadImageUseCase: DownloadCharacterImageUseCasePreview(),
+                                                  errorMapper: CharacterPresentableErrorMapper())
+}
+
 extension CharacterListViewModel {
     static let preview = CharacterListViewModel(getAllCharactersUseCase: GetAllCharactersUseCase(repository: CharacterRepository(characterRemoteDataSource: CharacterRemoteDataSourcePreview(),
                                                                                                                                  domainMapper: CharacterDomainMapper(),
@@ -28,6 +37,7 @@ extension CharacterEntity {
             name: "Rick Sanchez",
             status: .alive,
             species: "Human",
+            type: "Genetic experiment",
             gender: .male,
             origin: .preview,
             location: .preview,
@@ -50,6 +60,29 @@ extension LocationEntity {
 extension LocationDTO {
     static let preview = LocationDTO(name: "Earth (C-137)",
                                      url: "https://rickandmortyapi.com/api/location/1")
+}
+
+extension CharacterDTO {
+    static let preview = CharacterDTO(id: UUID().uuidString.hashValue,
+                                      name: "Rick Sanchez",
+                                      status: "Alive",
+                                      species: "Human",
+                                      type: "Genetic experiment",
+                                      gender: "Male",
+                                      origin: .preview,
+                                      location: .preview,
+                                      image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+                                      episode: [
+                                        "https://rickandmortyapi.com/api/episode/1",
+                                        "https://rickandmortyapi.com/api/episode/2",
+                                        "https://rickandmortyapi.com/api/episode/3",
+                                        "https://rickandmortyapi.com/api/episode/4",
+                                      ],
+                                      url: "https://rickandmortyapi.com/api/character/1")
+}
+
+final class CharacterDetailRemoteDataSourcePreview: CharacterDetailRemoteDataSourceType {
+    func getCharacter(id: String) async -> Result<CharacterDTO, HTTPClientError> { .success(.preview) }
 }
 
 final class CharacterRemoteDataSourcePreview: CharacterListRemoteDataSourceType {

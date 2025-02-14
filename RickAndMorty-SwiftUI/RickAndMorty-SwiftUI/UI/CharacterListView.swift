@@ -10,76 +10,84 @@ import SwiftUI
 struct CharacterListView: View {
     @ObservedObject private var viewModel: CharacterListViewModel
     
-    let item = GridItem(.adaptive(minimum: 150), alignment: .center)
+    private let createCharacterDetailView: CreateCharacterDetailView
     
-    @Namespace private var namespace
+    let gridItem = GridItem(.adaptive(minimum: 150), alignment: .center)
     
-    init(viewModel: CharacterListViewModel) {
+    @State var typeList: CharacterListDisplayMode = .list
+    
+    init(viewModel: CharacterListViewModel, createCharacterDetailView: CreateCharacterDetailView) {
         self.viewModel = viewModel
+        self.createCharacterDetailView = createCharacterDetailView
     }
     
     var body: some View {
-        ZStack {
-            if viewModel.loading {
-                VStack {
-                    ProgressView()
-                        .controlSize(.extraLarge)
-                    
-                    Text("Loading...", comment: "Displayed while data is being fetched.")
-                        .font(.rmLoadingText)
-                        .foregroundStyle(.gray)
-                        .padding(.top, 10)
+        NavigationStack {
+            Group {
+                if viewModel.loading {
+                    CharacterListLoadingView()
+                } else {
+                    if typeList == .list {
+                        List(viewModel.characters) { character in
+                            NavigationLink(destination: createCharacterDetailView.create(character: character)) {
+                                CharacterListItemView(character: character,
+                                                      downloadImageUseCase: viewModel.downloadImageUseCase)
+                            }
+                        }
+                    } else {
+                        ScrollView {
+                            LazyVGrid(columns: [gridItem]) {
+                                ForEach(viewModel.characters) { character in
+                                    NavigationLink(destination: createCharacterDetailView.create(character: character)) {
+                                        CharacterGridItemView(character: character,
+                                                              downloadImageUseCase: viewModel.downloadImageUseCase)
+                                    }
+                                }
+                            }
+                            .padding()
+                        }
+                    }
                 }
-            } else {
-                mainScroll
+            }
+            .navigationTitle(Text("Rick and Morty", comment: "Navigation bar title for the character list screen."))
+            .toolbar {
+                CharacterListTypeSwitcherView(typeList: $typeList)
             }
         }
-        .onAppear() {
+        .onAppear {
             viewModel.onAppear()
         }
-        .refreshable() {
+        .refreshable {
             viewModel.refreshData()
         }
         .customAlert(message: viewModel.msg, showAlert: $viewModel.showAlert)
     }
-    
-    var mainScroll: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: [item]) {
-                    ForEach(viewModel.characters) { character in
-                        CharacterListItemView(character: character,
-                                              namespace: namespace,
-                                              downloadImageUseCase: viewModel.downloadImageUseCase)
-                    }
-                }
-                .padding()
-            }
-            .navigationTitle(Text("Rick and Morty", comment: "Navigation bar title for the character list screen."))
-        }
-    }
 }
 
 #Preview ("Light mode - EN"){
-    CharacterListView(viewModel: .preview)
-        .preferredColorScheme(.light)
-        .environment(\.locale, Locale(identifier: "en"))
+    CharacterListView(viewModel: .preview,
+                      createCharacterDetailView: CharacterDetailFactory())
+    .preferredColorScheme(.light)
+    .environment(\.locale, Locale(identifier: "en"))
 }
 
 #Preview ("Dark mode - EN"){
-    CharacterListView(viewModel: .preview)
-        .preferredColorScheme(.dark)
-        .environment(\.locale, Locale(identifier: "en"))
+    CharacterListView(viewModel: .preview,
+                      createCharacterDetailView: CharacterDetailFactory())
+    .preferredColorScheme(.dark)
+    .environment(\.locale, Locale(identifier: "en"))
 }
 
 #Preview ("Light mode - ES"){
-    CharacterListView(viewModel: .preview)
-        .preferredColorScheme(.light)
-        .environment(\.locale, Locale(identifier: "es"))
+    CharacterListView(viewModel: .preview,
+                      createCharacterDetailView: CharacterDetailFactory())
+    .preferredColorScheme(.light)
+    .environment(\.locale, Locale(identifier: "es"))
 }
 
 #Preview ("Dark mode - ES"){
-    CharacterListView(viewModel: .preview)
-        .preferredColorScheme(.dark)
-        .environment(\.locale, Locale(identifier: "es"))
+    CharacterListView(viewModel: .preview,
+                      createCharacterDetailView: CharacterDetailFactory())
+    .preferredColorScheme(.dark)
+    .environment(\.locale, Locale(identifier: "es"))
 }

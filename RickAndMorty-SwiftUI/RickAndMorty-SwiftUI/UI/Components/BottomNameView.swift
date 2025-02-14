@@ -9,8 +9,6 @@ import SwiftUI
 
 struct BottomNameView: View {
     let name: String
-    let id: String
-    let namespace: Namespace.ID
     
     var body: some View {
         Rectangle()
@@ -19,8 +17,7 @@ struct BottomNameView: View {
             .overlay(alignment: .top) {
                 VStack {
                     Text(name)
-                        .font(.rmCharacterName)
-                        .matchedGeometryEffect(id: "name\(id)", in: namespace)
+                        .font(.rmCharacterNameList)
                         .foregroundStyle(.black)
                         .lineLimit(2)
                         .minimumScaleFactor(0.7)
@@ -32,5 +29,5 @@ struct BottomNameView: View {
 }
 
 #Preview {
-    BottomNameView(name: CharacterPresentable.preview.name, id: "1", namespace: Namespace().wrappedValue)
+    BottomNameView(name: CharacterPresentable.preview.name)
 }

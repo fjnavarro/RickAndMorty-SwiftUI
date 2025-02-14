@@ -8,7 +8,10 @@
 import SwiftUI
 
 extension Font {
-    static let rmCharacterName = Font.system(.caption, design: .rounded)
+    static let rmCharacterNameList = Font.system(.caption, design: .rounded)
+        .weight(.bold)
+    
+    static let rmCharacterNameDetail = Font.system(.title, design: .rounded)
         .weight(.bold)
     
     static let rmLoadingText = Font.system(.headline, design: .rounded)
@@ -19,4 +22,13 @@ extension Font {
     
     static let rmAlertButton = Font.system(.body, design: .rounded)
         .weight(.semibold)
+    
+    static let rmSectionHeader = Font.system(.headline, design: .rounded)
+        .weight(.bold)
+    
+    static let rmDetailTitle = Font.system(.body, design: .rounded)
+        .weight(.semibold)
+    
+    static let rmDetailValue = Font.system(.body, design: .rounded)
+        .weight(.regular)
 }

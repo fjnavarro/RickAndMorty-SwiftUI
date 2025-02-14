@@ -12,6 +12,7 @@ struct CharacterEntity {
     let name: String
     let status: CharacterStatus
     let species: String
+    let type: String?
     let gender: CharacterGender
     let origin: LocationEntity
     let location: LocationEntity

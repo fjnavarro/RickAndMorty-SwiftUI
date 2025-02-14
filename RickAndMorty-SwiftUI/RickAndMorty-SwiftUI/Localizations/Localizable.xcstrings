@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "--" : {
+
+    },
     "Cancel" : {
       "comment" : "Button to dismiss the alert without taking action.",
       "localizations" : {
@@ -17,6 +20,9 @@
           }
         }
       }
+    },
+    "Character Info" : {
+
     },
     "ERROR_CHARACTER_DECODING_FAILED" : {
       "comment" : "Shown when the app fails to parse the response data.",
@@ -103,6 +109,9 @@
         }
       }
     },
+    "Grid View" : {
+      "comment" : "Label for the button that switches the character list to a grid layout"
+    },
     "Hello World!" : {
       "comment" : "This text is only used for SwiftUI previews and should not be considered for localization.",
       "shouldTranslate" : false
@@ -110,6 +119,9 @@
     "Hello, World!" : {
       "comment" : "This text is only used for SwiftUI previews and should not be considered for localization.",
       "shouldTranslate" : false
+    },
+    "List View" : {
+      "comment" : "Label for the button that switches the character list to a list layout."
     },
     "Loading..." : {
       "comment" : "Displayed while data is being fetched.",
@@ -127,6 +139,9 @@
           }
         }
       }
+    },
+    "Locations" : {
+
     },
     "OK" : {
       "comment" : "Button to confirm and close the alert.",

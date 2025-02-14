@@ -14,17 +14,19 @@ class CharacterData {
     var name: String
     var status: String
     var species: String
+    var type: String?
     var gender: String
     var origin: LocationData
     var location: LocationData
     var imageURL: String?
     var episodes: [String]?
     
-    init(id: Int, name: String, status: CharacterStatus, species: String, gender: CharacterGender, origin: LocationData, location: LocationData, imageURL: URL?, episodes: [String]?) {
+    init(id: Int, name: String, status: CharacterStatus, species: String, type: String?, gender: CharacterGender, origin: LocationData, location: LocationData, imageURL: URL?, episodes: [String]?) {
         self.id = id
         self.name = name
         self.status = status.rawValue
         self.species = species
+        self.type = type
         self.gender = gender.rawValue
         self.origin = origin
         self.location = location
