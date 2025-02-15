@@ -20,8 +20,9 @@ class CharacterData {
     var location: LocationData
     var imageURL: String?
     var episodes: [String]?
+    var isDetailed: Bool
     
-    init(id: Int, name: String, status: CharacterStatus, species: String, type: String?, gender: CharacterGender, origin: LocationData, location: LocationData, imageURL: URL?, episodes: [String]?) {
+    init(id: Int, name: String, status: CharacterStatus, species: String, type: String?, gender: CharacterGender, origin: LocationData, location: LocationData, imageURL: URL?, episodes: [String]?, isDetailed: Bool = false) {
         self.id = id
         self.name = name
         self.status = status.rawValue
@@ -32,5 +33,6 @@ class CharacterData {
         self.location = location
         self.imageURL = imageURL?.absoluteString
         self.episodes = episodes
+        self.isDetailed = isDetailed
     }
 }

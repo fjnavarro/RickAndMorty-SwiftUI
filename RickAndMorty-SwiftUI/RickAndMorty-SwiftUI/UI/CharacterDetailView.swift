@@ -33,7 +33,7 @@ struct CharacterDetailView: View {
                                     value: viewModel.character.species)
                 CharacterDetailCell(title: "Gender",
                                     value: viewModel.character.gender)
-                if let type = viewModel.character.type {
+                if let type = viewModel.character.type, !type.isEmpty {
                     CharacterDetailCell(title: "Type",
                                         value: type)
                 }

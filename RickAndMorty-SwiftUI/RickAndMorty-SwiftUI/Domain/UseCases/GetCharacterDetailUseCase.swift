@@ -19,6 +19,16 @@ final class GetCharacterDetailUseCase: GetCharacterDetailUseCaseType {
     }
     
     func execute(id: String) async -> Result<CharacterEntity, CharacterDomainError> {
-        return await repository.getCharacterDetail(id: id)
+        let result = await repository.getCharacterDetail(id: id)
+        
+        guard let character = try? result.get() else {
+            guard case .failure(let error) = result else {
+                return .failure(.generic)
+            }
+            
+            return .failure(error)
+        }
+        
+        return .success(character)
     }
 }

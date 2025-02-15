@@ -12,7 +12,8 @@ extension CharacterDetailViewModel {
     static let preview = CharacterDetailViewModel(character: .preview,
                                                   getCharacterDetailUseCase: GetCharacterDetailUseCase(repository: CharacterDetailRepository(characterDetailRemoteDataSource: CharacterDetailRemoteDataSourcePreview(),
                                                                                                                                              domainMapper: CharacterDomainMapper(),
-                                                                                                                                             errorMapper: CharacterDomainErrorMapper())),
+                                                                                                                                             errorMapper: CharacterDomainErrorMapper(),
+                                                                                                                                             cacheDatasource: CharacterCacheDataSourcePreview())),
                                                   downloadImageUseCase: DownloadCharacterImageUseCasePreview(),
                                                   errorMapper: CharacterPresentableErrorMapper())
 }
@@ -82,7 +83,7 @@ extension CharacterDTO {
 }
 
 final class CharacterDetailRemoteDataSourcePreview: CharacterDetailRemoteDataSourceType {
-    func getCharacter(id: String) async -> Result<CharacterDTO, HTTPClientError> { .success(.preview) }
+    func getCharacter(id: Int) async -> Result<CharacterDTO, HTTPClientError> { .success(.preview) }
 }
 
 final class CharacterRemoteDataSourcePreview: CharacterListRemoteDataSourceType {
@@ -111,4 +112,10 @@ final class CharacterListCacheDataSourcePreview: CharacterListCacheDataSourceTyp
     }
     
     func saveCharacterList(_ characterList: [CharacterEntity]) async { }
+}
+
+final class CharacterCacheDataSourcePreview: CharacterCacheDataSourceType {
+    func getCharacter(id: Int) async -> CharacterEntity? { .generatePreviewCharacter() }
+    
+    func saveCharacter(character: CharacterEntity) async { }
 }

@@ -9,11 +9,11 @@ import Foundation
 
 final class PersistentCharacterListCacheDataSource: CharacterListCacheDataSourceType {
     private let container: CharacterListStorageType?
-    private let locationMapper: LocationDataMapper
+    private let characterDataMapper: CharacterDataMapper
     
-    init(container: CharacterListStorageType?, locationMapper: LocationDataMapper) {
+    init(container: CharacterListStorageType?, characterDataMapper: CharacterDataMapper) {
         self.container = container
-        self.locationMapper = locationMapper
+        self.characterDataMapper = characterDataMapper
     }
     
     func getCharacterList() async -> [CharacterEntity] {
@@ -21,30 +21,12 @@ final class PersistentCharacterListCacheDataSource: CharacterListCacheDataSource
             return []
         }
         
-        return characters.map { CharacterEntity(id: $0.id,
-                                                name: $0.name,
-                                                status: CharacterStatus(rawValue: $0.status) ?? .unknown,
-                                                species: $0.species,
-                                                type: $0.type ?? "",
-                                                gender: CharacterGender(rawValue: $0.gender) ?? .unknown,
-                                                origin: locationMapper.map(locationData: $0.origin),
-                                                location: locationMapper.map(locationData: $0.location),
-                                                imageURL: $0.imageURL.flatMap { URL(string: $0) },
-                                                episodes: $0.episodes ?? [])}
+        return characters.map { characterDataMapper.map(characterData: $0) }
     }
     
     func saveCharacterList(_ characterList: [CharacterEntity]) async {
         let charactersData = characterList.map {
-            CharacterData(id: $0.id,
-                          name: $0.name,
-                          status: $0.status,
-                          species: $0.species,
-                          type: $0.type,
-                          gender: $0.gender,
-                          origin: locationMapper.map(locationEntity: $0.origin),
-                          location: locationMapper.map(locationEntity: $0.location),
-                          imageURL: $0.imageURL,
-                          episodes: $0.episodes)
+            characterDataMapper.map(characterEntity: $0)
         }
         
         await container?.insert(charactersData)

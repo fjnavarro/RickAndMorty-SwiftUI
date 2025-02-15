@@ -18,7 +18,7 @@ final class CharacterDetailRemoteDataSource {
 }
 
 extension CharacterDetailRemoteDataSource: CharacterDetailRemoteDataSourceType {
-    func getCharacter(id: String) async -> Result<CharacterDTO, HTTPClientError> {
+    func getCharacter(id: Int) async -> Result<CharacterDTO, HTTPClientError> {
         let endpoint = Endpoint(path: "character/\(id)",
                                 queryParameters: [:],
                                 method: .get)

@@ -16,5 +16,5 @@ protocol CharacterImageRemoteDataSourceType {
 }
 
 protocol CharacterDetailRemoteDataSourceType {
-    func getCharacter(id: String) async -> Result<CharacterDTO, HTTPClientError>
+    func getCharacter(id: Int) async -> Result<CharacterDTO, HTTPClientError>
 }

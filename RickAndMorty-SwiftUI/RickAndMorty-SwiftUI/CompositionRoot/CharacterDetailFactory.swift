@@ -26,15 +26,22 @@ final class CharacterDetailFactory: CreateCharacterDetailView {
     private func createRepository() -> CharacterDetailRepositoryType {
         CharacterDetailRepository(characterDetailRemoteDataSource: createCharacterDetailRemoteDataSource(),
                                   domainMapper: CharacterDomainMapper(),
-                                  errorMapper: CharacterDomainErrorMapper())
+                                  errorMapper: CharacterDomainErrorMapper(),
+                                  cacheDatasource: createCacheDataSource())
     }
     
-    private func createCacheDataSource() {
-#warning("meter las cachés")
+    private func createCacheDataSource() -> CharacterCacheDataSourceType {
+        CompositeCharacterCacheDataSource(temporalCache: InMemoryCharacterCacheDataSource.shared,
+                                          persistanceCache: createPersistanceCacheDataSource())
     }
     
-    private func createPersistanceCacheDataSource() {
-        
+    private func createPersistanceCacheDataSource() -> CharacterCacheDataSourceType {
+        PersistentCharacterCacheDataSource(container: CharacterStorage.shared,
+                                           characterDataMapper: createCharacterDataMapper())
+    }
+    
+    private func createCharacterDataMapper() -> CharacterDataMapper {
+        CharacterDataMapper(locationMapper: LocationDataMapper())
     }
     
     private func createCharacterDetailRemoteDataSource() -> CharacterDetailRemoteDataSourceType {
