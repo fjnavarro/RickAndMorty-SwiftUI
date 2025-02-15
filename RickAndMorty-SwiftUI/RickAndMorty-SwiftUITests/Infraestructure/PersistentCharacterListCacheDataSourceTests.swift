@@ -13,7 +13,7 @@ final class PersistentCharacterListCacheDataSourceTests: XCTestCase {
     func test_getCharacterList_returns_empty_when_storage_is_empty() async {
         // GIVEN
         let storageStub = CharacterListStorageStub(fetchCharactersResult: [])
-        let sut = PersistentCharacterListCacheDataSource(container: storageStub, locationMapper: LocationDataMapper())
+        let sut = makeSUT(storageStub)
         
         // WHEN
         let result = await sut.getCharacterList()
@@ -29,7 +29,7 @@ final class PersistentCharacterListCacheDataSourceTests: XCTestCase {
         let expectedEntities = CharacterEntityTestData.makeCharacterList()
         
         let storageStub = CharacterListStorageStub(fetchCharactersResult: storedCharacters)
-        let sut = PersistentCharacterListCacheDataSource(container: storageStub, locationMapper: LocationDataMapper())
+        let sut = makeSUT(storageStub)
         
         // WHEN
         let result = await sut.getCharacterList()
@@ -44,12 +44,19 @@ final class PersistentCharacterListCacheDataSourceTests: XCTestCase {
         let emptyCharacterList: [CharacterEntity] = []
         let storageStub = CharacterListStorageStub(fetchCharactersResult: [])
         
-        let sut = PersistentCharacterListCacheDataSource(container: storageStub, locationMapper: LocationDataMapper())
+        let sut = makeSUT(storageStub)
         
         // WHEN
         await sut.saveCharacterList(emptyCharacterList)
         
         // THEN
         XCTAssertEqual(storageStub.insertedCharacters, [])
+    }
+}
+
+extension PersistentCharacterListCacheDataSourceTests {
+    private func makeSUT(_ characterListStorage: CharacterListStorageType?) -> CharacterListCacheDataSourceType {
+        let characterDataMapper = CharacterDataMapper(locationMapper: LocationDataMapper())
+        return PersistentCharacterListCacheDataSource(container: characterListStorage, characterDataMapper: characterDataMapper)
     }
 }

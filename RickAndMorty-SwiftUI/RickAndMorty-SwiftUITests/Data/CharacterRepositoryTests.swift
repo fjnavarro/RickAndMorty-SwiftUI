@@ -122,7 +122,7 @@ final class CharacterRepositoryTests: XCTestCase {
     func test_getCharacters_handles_nil_values_gracefully() async throws {
         // GIVEN
         let characterWithNilValues = [
-            CharacterDTO(id: 1, name: "Rick", status: nil, species: nil, gender: nil, origin: nil, location: nil, image: nil, episode: nil)
+            CharacterDTO(id: 1, name: "Rick", status: nil, species: nil, type: nil, gender: nil, origin: nil, location: nil, image: nil, episode: nil, url: nil)
         ]
         
         let expectedCharacter = CharacterEntity(
@@ -130,6 +130,7 @@ final class CharacterRepositoryTests: XCTestCase {
             name: "Rick",
             status: .unknown,
             species: "",
+            type: "",
             gender: .unknown,
             origin: LocationEntity(name: "Unknown", url: nil),
             location: LocationEntity(name: "Unknown", url: nil),

@@ -24,22 +24,18 @@ public struct CharacterImageView: View {
     
     public var body: some View {
         VStack {
-            if let uiImage = image {
-                Image(uiImage: uiImage)
-                    .characterImageStyle(width: isExpanded ? 250 : 150,
-                                         height: isExpanded ? 420 : 230,
-                                         characterName: character.name,
-                                         showOverlay: showOverlay)
-            } else {
-                Image(systemName: "photo")
-                    .characterImageStyle(width: isExpanded ? 250 : 150,
-                                         height: isExpanded ? 420 : 230,
-                                         characterName: character.name,
-                                         showOverlay: showOverlay)
-                    .task {
+            let displayedImage = image.map { Image(uiImage: $0) } ?? Image(systemName: "photo")
+            
+            displayedImage
+                .characterImageStyle(width: isExpanded ? 250 : 150,
+                                     height: isExpanded ? 420 : 230,
+                                     characterName: character.name,
+                                     showOverlay: showOverlay)
+                .task(id: image) {
+                    if image == nil {
                         await loadImage()
                     }
-            }
+                }
         }
     }
     
