@@ -170,7 +170,10 @@ The project includes **custom font styles** to ensure a consistent and visually 
 
 ```swift
 extension Font {
-    static let rmCharacterName = Font.system(.caption, design: .rounded)
+    static let rmCharacterNameList = Font.system(.caption, design: .rounded)
+        .weight(.bold)
+    
+    static let rmCharacterNameDetail = Font.system(.title, design: .rounded)
         .weight(.bold)
     
     static let rmLoadingText = Font.system(.headline, design: .rounded)
@@ -181,15 +184,28 @@ extension Font {
     
     static let rmAlertButton = Font.system(.body, design: .rounded)
         .weight(.semibold)
+    
+    static let rmSectionHeader = Font.system(.headline, design: .rounded)
+        .weight(.bold)
+    
+    static let rmDetailTitle = Font.system(.body, design: .rounded)
+        .weight(.semibold)
+    
+    static let rmDetailValue = Font.system(.body, design: .rounded)
+        .weight(.regular)
 }
 ```
 
 These styles are applied across the UI:
 
-- **rmCharacterName**: Used for character names in the character list.
+- **rmCharacterNameList**: Used for character names in the character list.
+- **rmCharacterNameDetail**: Used for the character name in the detail screen.
 - **rmLoadingText**: Used for the "Loading..." text in loading states.
 - **rmAlertTitle**: Used for alert titles.
 - **rmAlertButton**: Used for alert action buttons.
+- **rmSectionHeader**: Used for section headers in the character detail screen.
+- **rmDetailTitle**: Used for detail titles in the character detail screen.
+- **rmDetailValue**: Used for the values displayed in character details.
     
 ---
 
@@ -292,14 +308,17 @@ GET https://rickandmortyapi.com/api/character
 
 ## 🔥 Future Enhancements
 
-- 📌 **Add a use case for fetching character details**
-- 📌 **Implement a character detail screen displaying all character information**
-- 📌 **Add unit tests for the presentation layer**
-- 📌 **Add unit tests for the image download use case**
-- 📌 **Implement UI tests**
-- 📌 **Add pagination to the character list**
-- 📌 **Implement a splash screen with animations**
-- 📌 **Refactor API logic into a separate local Swift Package (SPM)**
+-	📌 **Add unit tests for the presentation layer**
+-	📌 **Add unit tests for the image download use case**
+-	📌 **Add unit tests for the character detail use case**
+-	📌 **Implement UI tests**
+-	📌 **Add pagination to the character list**
+-	📌 **Implement a splash screen with animations**
+-	📌 **Refactor API logic into a separate local Swift Package (SPM)**
+-	📌 **Localize character attributes such as status and gender types**
+-	📌 **Enhance location details by combining multiple API services in a dedicated use case**
+-	📌 **Extend episode details retrieval using a similar approach to location details**
+-	📌 **Implement search filters for better character discovery**
 
 ---
 
