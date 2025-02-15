@@ -203,6 +203,7 @@ Additionally:
 - ✅ **Previews are available in both Light Mode and Dark Mode** for necessary cases, ensuring proper UI adaptation.
 - ✅ **Localized previews**: Developers can test how the UI adapts to different languages (English & Spanish) in real-time.
 - ✅ **The AlertModifier also includes a preview**, allowing for easy visualization and adjustments of the custom alert component.
+- ✅ **Reusable components, such as CharacterImageView, include previews demonstrating different states** (expanded, collapsed, with/without overlay), making them easier to test and integrate.
 
 #### Example of a **SwiftUI Preview**:
 
@@ -257,12 +258,17 @@ GET https://rickandmortyapi.com/api/character
 
 ## 🎯 Key Features
 
-- ✅ **Character list with cached images** 
-- ✅ **Efficient image caching with `NSCache`** 
-- ✅ **Local storage with `SwiftData`**  
-- ✅ **Error handling with `Result<T, Error>`**  
-- ✅ **Modular and scalable design**  
-- ✅ **Unit tests covering all use cases except UI tests (planned for future updates)**
+- ✅ **Character list with cached images**
+- ✅ **Efficient image caching with `NSCache`**
+- ✅ **Local storage with `SwiftData`**
+- ✅ **Error handling with `Result<T, Error>`**
+- ✅ **Multi-language support (English & Spanish) using Apple’s latest localization technology (String Catalogs)**
+- ✅ **Two display modes for the character list: List and Grid views**
+- ✅ **Character detail screen displaying key information**
+- ✅ **Custom fonts and reusable UI components for better design consistency**
+- ✅ **Modular and scalable architecture following Clean Architecture & SOLID principles**
+- ✅ **Unit tests covering all use cases (except UI tests and character detail fetching, planned for future updates)**
+- ✅ **Interactive SwiftUI previews for all views, supporting different modes and languages**  
 
 ---
 
