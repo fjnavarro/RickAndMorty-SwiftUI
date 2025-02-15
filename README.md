@@ -44,18 +44,23 @@ The application is structured based on **Clean Architecture**, separating busine
 ```
 RickAndMorty-SwiftUI/
 │── CompositionRoot/
+│   ├── CharacterDetailFactory.swift
 │   ├── CharacterListFactory.swift
 │── Data/
 │   ├── Cache/
+│   │   ├── CharacterCacheDataSourceType.swift
 │   │   ├── CharacterImageCache.swift
 │   │   ├── CharacterListCacheDataSourceType.swift
+│   │   ├── CompositeCharacterCacheDataSource.swift
 │   │   ├── CompositeCharacterListCacheDataSource.swift
+│   │   ├── InMemoryCharacterCacheDataSource.swift
 │   │   ├── InMemoryCharacterListCacheDataSource.swift
 │   ├── DTOs/
 │   │   ├── CharacterDTO.swift
 │   │   ├── CharacterResponseDTO.swift
 │   │   ├── LocationDTO.swift
 │   ├── Networking/
+│   │   ├── CharacterDetailRemoteDataSource.swift
 │   │   ├── CharacterImageRemoteDataSource.swift
 │   │   ├── Endpoint.swift
 │   │   ├── HTTPClient.swift
@@ -64,6 +69,7 @@ RickAndMorty-SwiftUI/
 │   │   ├── RemoteDataSource.swift
 │   │   ├── RemoteDataSourceType.swift
 │   ├── Repositories/
+│   │   ├── CharacterDetailRepository.swift
 │   │   ├── CharacterImageRepository.swift
 │   │   ├── CharacterRepository.swift
 │   ├── CharacterDomainErrorMapper.swift
@@ -74,20 +80,26 @@ RickAndMorty-SwiftUI/
 │   │   ├── CharacterEntity.swift
 │   │   ├── LocationEntity.swift
 │   ├── Interfaces/
+│   │   ├── CharacterDetailRepositoryType.swift
 │   │   ├── CharacterImageRepositoryType.swift
 │   │   ├── CharacterRepositoryType.swift
 │   ├── UseCases/
 │   │   ├── DownloadCharacterImageUseCase.swift
 │   │   ├── GetAllCharactersUseCase.swift
+│   │   ├── GetCharacterDetailUseCase.swift
 │   ├── CharacterDomainError.swift
 │   ├── CharacterImageError.swift
 │── Infraestructure/
 │   ├── Data/
 │   │   ├── CharacterData.swift
+│   │   ├── CharacterDataMapper.swift
 │   │   ├── CharacterListStorage.swift
 │   │   ├── CharacterListStorageType.swift
+│   │   ├── CharacterStorage.swift
+│   │   ├── CharacterStorageType.swift
 │   │   ├── LocationData.swift
 │   │   ├── LocationDataMapper.swift
+│   │   ├── PersistentCharacterCacheDataSource.swift
 │   │   ├── PersistentCharacterListCacheDataSource.swift
 │   ├── Networking/
 │   │   ├── APIConstants.swift
@@ -95,9 +107,10 @@ RickAndMorty-SwiftUI/
 │   │   ├── URLSessionHTTPCLient.swift
 │   │   ├── URLSessionRequestMaker.swift
 │── Presentation/
+│   │   ├── CharacterDetailViewModel.swift
+│   │   ├── CharacterListDisplayMode.swift
 │   │   ├── CharacterListViewModel.swift
-│   │   ├── CharacterListView.swift
-│   │   ├── AlertModifier.swift
+│   │   ├── CharacterPresentable.swift
 │   │   ├── View+Modifiers.swift
 │   │   ├── CharacterPresentableErrorMapper.swift
 │   │   ├── LocalizedErrorKey.swift
@@ -105,8 +118,18 @@ RickAndMorty-SwiftUI/
 │   ├── ModifierPreview.swift
 │   ├── PreviewData.swift
 │── UI/
-│   ├── BottomNameView.swift
-│   ├── CharacterListItemView.swift
+│   │── Components/
+│   │   ├── AlertModifier.swift
+│   │   ├── BottomNameView.swift
+│   │   ├── CharacterDetailCell.swift
+│   │   ├── CharacterDetailStackCell.swift
+│   │   ├── CharacterGridItemView.swift
+│   │   ├── CharacterImageView.swift
+│   │   ├── CharacterListItemView.swift
+│   │   ├── CharacterListLoadingView.swift
+│   │   ├── CharacterListTypeSwitcherView.swift
+│   ├── CharacterDetailView.swift
+│   ├── CharacterListView.swift
 │   ├── Image+Styles.swift
 │   ├── Font+Styles.swift
 │── Utils/
