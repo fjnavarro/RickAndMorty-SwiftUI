@@ -11,18 +11,23 @@ Additionally, the app uses **SwiftData** for local storage and **NSCache** for i
 
 ## 📸 Screenshots & Previews
 
+| App Screenshots | App Screenshots | App Screenshots |
+|----------------|----------------|----------------|
+| <a href="https://github.com/user-attachments/assets/a43928bc-a2a0-4c4e-9688-9146d5ba3bab" target="_blank"><img src="https://github.com/user-attachments/assets/a43928bc-a2a0-4c4e-9688-9146d5ba3bab" width="400"></a> | <a href="https://github.com/user-attachments/assets/21a67dfb-854f-414c-9f5a-2dc34f83f14a" target="_blank"><img src="https://github.com/user-attachments/assets/21a67dfb-854f-414c-9f5a-2dc34f83f14a" width="400"></a> | <a href="https://github.com/user-attachments/assets/bb44966e-18df-47b3-9369-dac303a622ed" target="_blank"><img src="https://github.com/user-attachments/assets/bb44966e-18df-47b3-9369-dac303a622ed" width="400"></a> |
+
 | App Screenshots | App Screenshots | Tests |
 |----------------|----------------|----------------|
-| <a href="https://github.com/user-attachments/assets/ee5eb316-515a-4136-852f-b5c5eb6e1d36" target="_blank"><img src="https://github.com/user-attachments/assets/ee5eb316-515a-4136-852f-b5c5eb6e1d36" width="400"></a> | <a href="https://github.com/user-attachments/assets/c73f08ba-69d0-460c-913c-443770b38b30" target="_blank"><img src="https://github.com/user-attachments/assets/c73f08ba-69d0-460c-913c-443770b38b30" width="400"></a> | <a href="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" target="_blank"><img src="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" width="400"></a> |
+| <a href="https://github.com/user-attachments/assets/ef754ffd-06f1-4144-9455-3bad7b01827c" target="_blank"><img src="https://github.com/user-attachments/assets/ef754ffd-06f1-4144-9455-3bad7b01827c" width="400"></a> | <a href="https://github.com/user-attachments/assets/4d9e19b9-b04a-4110-aa50-eaa50107fafd" target="_blank"><img src="https://github.com/user-attachments/assets/4d9e19b9-b04a-4110-aa50-eaa50107fafd" width="400"></a> | <a href="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" target="_blank"><img src="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" width="400"></a> |
+
+
 
 | Code Coverage | SQLite Data (CoreData Cache) |
 |--------------|----------------------|
-| <a href="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" target="_blank"><img src="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" width="800"></a> | <a href="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" target="_blank"><img src="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" width="800"></a> |
+| <a href="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" target="_blank"><img src="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" width="800"></a> | <a href="https://github.com/user-attachments/assets/ac12359e-7c70-47c2-9827-e0b362f8fd0c" target="_blank"><img src="https://github.com/user-attachments/assets/ac12359e-7c70-47c2-9827-e0b362f8fd0c" width="800"></a> |
 
 | Localized Preview (EN & ES, Dark & Light) |
 |------------------------------------------|
 | ![toGif](https://github.com/user-attachments/assets/871d093e-a5a8-49c1-b911-c04c2bfad6b5) |
-
 
 ---
 
