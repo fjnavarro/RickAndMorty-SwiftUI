@@ -17,11 +17,13 @@ final class CharacterDomainMapperTests: XCTestCase {
             name: "Rick Sanchez",
             status: "Alive",
             species: "Human",
+            type: nil,
             gender: "Male",
             origin: LocationDTO(name: "Earth (C-137)", url: "https://rickandmortyapi.com/api/location/1"),
             location: LocationDTO(name: "Citadel of Ricks", url: "https://rickandmortyapi.com/api/location/3"),
             image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-            episode: ["https://rickandmortyapi.com/api/episode/1"]
+            episode: ["https://rickandmortyapi.com/api/episode/1"],
+            url: nil
         )
         
         let expectedEntity = CharacterEntity(
@@ -29,6 +31,7 @@ final class CharacterDomainMapperTests: XCTestCase {
             name: "Rick Sanchez",
             status: .alive,
             species: "Human",
+            type: nil,
             gender: .male,
             origin: LocationEntity(name: "Earth (C-137)", url: URL(string: "https://rickandmortyapi.com/api/location/1")),
             location: LocationEntity(name: "Citadel of Ricks", url: URL(string: "https://rickandmortyapi.com/api/location/3")),
@@ -53,11 +56,13 @@ final class CharacterDomainMapperTests: XCTestCase {
             name: "Morty Smith",
             status: nil,
             species: nil,
+            type: nil,
             gender: nil,
             origin: nil,
             location: nil,
             image: nil,
-            episode: nil
+            episode: nil,
+            url: nil
         )
         
         let expectedEntity = CharacterEntity(
@@ -65,6 +70,7 @@ final class CharacterDomainMapperTests: XCTestCase {
             name: "Morty Smith",
             status: .unknown,  // Default value
             species: "",       // Default value
+            type: nil,
             gender: .unknown,  // Default value
             origin: LocationEntity(name: "Unknown", url: nil),
             location: LocationEntity(name: "Unknown", url: nil),
@@ -90,22 +96,26 @@ final class CharacterDomainMapperTests: XCTestCase {
                 name: "Rick Sanchez",
                 status: "Alive",
                 species: "Human",
+                type: nil,
                 gender: "Male",
                 origin: LocationDTO(name: "Earth (C-137)", url: "https://rickandmortyapi.com/api/location/1"),
                 location: LocationDTO(name: "Citadel of Ricks", url: "https://rickandmortyapi.com/api/location/3"),
                 image: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-                episode: ["https://rickandmortyapi.com/api/episode/1"]
+                episode: ["https://rickandmortyapi.com/api/episode/1"],
+                url: nil
             ),
             CharacterDTO(
                 id: 2,
                 name: "Morty Smith",
                 status: "Alive",
                 species: "Human",
+                type: nil,
                 gender: "Male",
                 origin: LocationDTO(name: "Unknown", url: nil),
                 location: LocationDTO(name: "Unknown", url: nil),
                 image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-                episode: ["https://rickandmortyapi.com/api/episode/2"]
+                episode: ["https://rickandmortyapi.com/api/episode/2"],
+                url: nil
             )
         ]
         
@@ -115,6 +125,7 @@ final class CharacterDomainMapperTests: XCTestCase {
                 name: "Rick Sanchez",
                 status: .alive,
                 species: "Human",
+                type: nil,
                 gender: .male,
                 origin: LocationEntity(name: "Earth (C-137)", url: URL(string: "https://rickandmortyapi.com/api/location/1")),
                 location: LocationEntity(name: "Citadel of Ricks", url: URL(string: "https://rickandmortyapi.com/api/location/3")),
@@ -126,6 +137,7 @@ final class CharacterDomainMapperTests: XCTestCase {
                 name: "Morty Smith",
                 status: .alive,
                 species: "Human",
+                type: nil,
                 gender: .male,
                 origin: LocationEntity(name: "Unknown", url: nil),
                 location: LocationEntity(name: "Unknown", url: nil),

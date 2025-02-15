@@ -16,6 +16,7 @@ struct CharacterDTOTestData {
                 name: "Rick Sanchez",
                 status: "Alive",
                 species: "Human",
+                type: nil,
                 gender: "Male",
                 origin: makeLocation(),
                 location: makeLocation(),
@@ -25,13 +26,15 @@ struct CharacterDTOTestData {
                     "https://rickandmortyapi.com/api/episode/2",
                     "https://rickandmortyapi.com/api/episode/3",
                     "https://rickandmortyapi.com/api/episode/4",
-                ]
+                ],
+                url: nil
             ),
             CharacterDTO(
                 id: 2,
                 name: "Morty Smith",
                 status: "Alive",
                 species: "Human",
+                type: nil,
                 gender: "Male",
                 origin: makeLocation(),
                 location: makeLocation(),
@@ -41,13 +44,15 @@ struct CharacterDTOTestData {
                     "https://rickandmortyapi.com/api/episode/2",
                     "https://rickandmortyapi.com/api/episode/3",
                     "https://rickandmortyapi.com/api/episode/4",
-                ]
+                ],
+                url: nil
             ),
             CharacterDTO(
                 id: 3,
                 name: "Summer Smith",
                 status: "Alive",
                 species: "Human",
+                type: nil,
                 gender: "Female",
                 origin: makeLocation(),
                 location: makeLocation(),
@@ -57,7 +62,8 @@ struct CharacterDTOTestData {
                     "https://rickandmortyapi.com/api/episode/7",
                     "https://rickandmortyapi.com/api/episode/8",
                     "https://rickandmortyapi.com/api/episode/9",
-                ]
+                ],
+                url: nil
             )
         ]
     }

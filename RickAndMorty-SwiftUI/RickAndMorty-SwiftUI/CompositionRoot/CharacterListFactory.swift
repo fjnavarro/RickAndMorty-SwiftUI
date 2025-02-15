@@ -9,7 +9,8 @@ import Foundation
 
 final class CharacterListFactory {
     static func create() -> CharacterListView {
-        CharacterListView(viewModel: createViewModel())
+        CharacterListView(viewModel: createViewModel(),
+                          createCharacterDetailView: CharacterDetailFactory())
     }
     
     private static func createViewModel() -> CharacterListViewModel {
@@ -36,10 +37,14 @@ final class CharacterListFactory {
     
     private static func createPersistanceCacheDataSource() -> CharacterListCacheDataSourceType {
         PersistentCharacterListCacheDataSource(container: CharacterListStorage.shared,
-                                               locationMapper: LocationDataMapper())
+                                               characterDataMapper: createCharacterDataMapper())
     }
     
-    private static func createRemoteDataSource() -> RemoteDataSource {
+    private static func createCharacterDataMapper() -> CharacterDataMapper {
+        CharacterDataMapper(locationMapper: LocationDataMapper())
+    }
+    
+    private static func createRemoteDataSource() -> CharacterListRemoteDataSourceType {
         RemoteDataSource(httpClient: createHttpClient())
     }
     

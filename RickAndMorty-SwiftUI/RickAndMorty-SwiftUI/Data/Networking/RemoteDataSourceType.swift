@@ -14,3 +14,7 @@ protocol CharacterListRemoteDataSourceType {
 protocol CharacterImageRemoteDataSourceType {
     func downloadImage(from url: URL) async -> Result<Data, HTTPClientError>
 }
+
+protocol CharacterDetailRemoteDataSourceType {
+    func getCharacter(id: Int) async -> Result<CharacterDTO, HTTPClientError>
+}

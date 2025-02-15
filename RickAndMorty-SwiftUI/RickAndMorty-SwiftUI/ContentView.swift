@@ -16,5 +16,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(characterListView: CharacterListView(viewModel: .preview))
+    ContentView(characterListView: CharacterListView(viewModel: .preview,
+                                                     createCharacterDetailView: CharacterDetailFactory()))
 }

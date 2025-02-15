@@ -11,19 +11,16 @@ extension Image {
     func characterImageStyle(
         width: CGFloat,
         height: CGFloat,
-        namespace: Namespace.ID,
-        characterID: String,
         characterName: String,
         showOverlay: Bool
     ) -> some View {
         self
             .resizable()
-            .matchedGeometryEffect(id: "character\(characterID)", in: namespace)
             .scaledToFill()
             .frame(width: width, height: height)
             .overlay(alignment: .bottom) {
                 if showOverlay {
-                    BottomNameView(name: characterName, id: characterID, namespace: namespace)
+                    BottomNameView(name: characterName)
                 }
             }
             .clipShape(RoundedRectangle(cornerRadius: 10))

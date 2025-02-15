@@ -14,6 +14,7 @@ final class CharacterDomainMapper {
             name: character.name,
             status: CharacterStatus(rawValue: character.status ?? "unknown") ?? .unknown,
             species: character.species ?? "",
+            type: character.type,
             gender: CharacterGender(rawValue: character.gender ?? "unknown") ?? .unknown,
             origin: map(location: character.origin),
             location: map(location: character.location),

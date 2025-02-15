@@ -45,6 +45,7 @@ final class RemoteDataSourceTests: XCTestCase {
                 name: "Rick Sanchez",
                 status: "Alive",
                 species: "Human",
+                type: nil,
                 gender: "Male",
                 origin: LocationDTO(name: "Earth (C-137)", url: "https://rickandmortyapi.com/api/location/1"),
                 location: LocationDTO(name: "Citadel of Ricks", url: "https://rickandmortyapi.com/api/location/3"),
@@ -52,7 +53,8 @@ final class RemoteDataSourceTests: XCTestCase {
                 episode: [
                     "https://rickandmortyapi.com/api/episode/1",
                     "https://rickandmortyapi.com/api/episode/2"
-                ]
+                ],
+                url: nil
             )
         ]
         let sut = RemoteDataSource(httpClient: HTTPClientStub(result: .success(data!)))
@@ -138,11 +140,13 @@ final class RemoteDataSourceTests: XCTestCase {
                 name: "Rick Sanchez",
                 status: nil,
                 species: nil,
+                type: nil,
                 gender: nil,
                 origin: nil,
                 location: nil,
                 image: nil,
-                episode: nil
+                episode: nil,
+                url: nil
             )
         ]
 
