@@ -27,7 +27,11 @@ Additionally, the app uses **SwiftData** for local storage and **NSCache** for i
 
 | Localized Preview (EN & ES, Dark & Light) |
 |------------------------------------------|
-| ![toGif](https://github.com/user-attachments/assets/871d093e-a5a8-49c1-b911-c04c2bfad6b5) |
+| <a href="https://github.com/user-attachments/assets/871d093e-a5a8-49c1-b911-c04c2bfad6b5" target="_blank"><img src="https://github.com/user-attachments/assets/871d093e-a5a8-49c1-b911-c04c2bfad6b5" width="960"></a> |
+
+| Character Image View Preview (Collapsed, Expanded, With & Without Overlay) |
+|----------------------------------------------------------------------------|
+| <a href="https://github.com/user-attachments/assets/65f7b310-e0c1-4c0d-952c-63763037af24" target="_blank"><img src="https://github.com/user-attachments/assets/65f7b310-e0c1-4c0d-952c-63763037af24" width="960"></a> |
 
 ---
 
