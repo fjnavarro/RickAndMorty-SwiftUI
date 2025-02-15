@@ -11,18 +11,27 @@ Additionally, the app uses **SwiftData** for local storage and **NSCache** for i
 
 ## 📸 Screenshots & Previews
 
+| App Screenshots | App Screenshots | App Screenshots |
+|----------------|----------------|----------------|
+| <a href="https://github.com/user-attachments/assets/a43928bc-a2a0-4c4e-9688-9146d5ba3bab" target="_blank"><img src="https://github.com/user-attachments/assets/a43928bc-a2a0-4c4e-9688-9146d5ba3bab" width="400"></a> | <a href="https://github.com/user-attachments/assets/21a67dfb-854f-414c-9f5a-2dc34f83f14a" target="_blank"><img src="https://github.com/user-attachments/assets/21a67dfb-854f-414c-9f5a-2dc34f83f14a" width="400"></a> | <a href="https://github.com/user-attachments/assets/bb44966e-18df-47b3-9369-dac303a622ed" target="_blank"><img src="https://github.com/user-attachments/assets/bb44966e-18df-47b3-9369-dac303a622ed" width="400"></a> |
+
 | App Screenshots | App Screenshots | Tests |
 |----------------|----------------|----------------|
-| <a href="https://github.com/user-attachments/assets/ee5eb316-515a-4136-852f-b5c5eb6e1d36" target="_blank"><img src="https://github.com/user-attachments/assets/ee5eb316-515a-4136-852f-b5c5eb6e1d36" width="400"></a> | <a href="https://github.com/user-attachments/assets/c73f08ba-69d0-460c-913c-443770b38b30" target="_blank"><img src="https://github.com/user-attachments/assets/c73f08ba-69d0-460c-913c-443770b38b30" width="400"></a> | <a href="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" target="_blank"><img src="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" width="400"></a> |
+| <a href="https://github.com/user-attachments/assets/ef754ffd-06f1-4144-9455-3bad7b01827c" target="_blank"><img src="https://github.com/user-attachments/assets/ef754ffd-06f1-4144-9455-3bad7b01827c" width="400"></a> | <a href="https://github.com/user-attachments/assets/4d9e19b9-b04a-4110-aa50-eaa50107fafd" target="_blank"><img src="https://github.com/user-attachments/assets/4d9e19b9-b04a-4110-aa50-eaa50107fafd" width="400"></a> | <a href="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" target="_blank"><img src="https://github.com/user-attachments/assets/4ca2de26-cb09-4dc2-bc1b-5d4616b5949e" width="400"></a> |
+
+
 
 | Code Coverage | SQLite Data (CoreData Cache) |
 |--------------|----------------------|
-| <a href="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" target="_blank"><img src="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" width="800"></a> | <a href="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" target="_blank"><img src="https://github.com/user-attachments/assets/87c1c8cc-263b-4a21-ad0c-840e624414dc" width="800"></a> |
+| <a href="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" target="_blank"><img src="https://github.com/user-attachments/assets/60ada7a4-7651-4b12-bf2a-a111df324674" width="800"></a> | <a href="https://github.com/user-attachments/assets/ac12359e-7c70-47c2-9827-e0b362f8fd0c" target="_blank"><img src="https://github.com/user-attachments/assets/ac12359e-7c70-47c2-9827-e0b362f8fd0c" width="800"></a> |
 
 | Localized Preview (EN & ES, Dark & Light) |
 |------------------------------------------|
-| ![toGif](https://github.com/user-attachments/assets/871d093e-a5a8-49c1-b911-c04c2bfad6b5) |
+| <a href="https://github.com/user-attachments/assets/871d093e-a5a8-49c1-b911-c04c2bfad6b5" target="_blank"><img src="https://github.com/user-attachments/assets/871d093e-a5a8-49c1-b911-c04c2bfad6b5" width="960"></a> |
 
+| Character Image View Preview (Collapsed, Expanded, With & Without Overlay) |
+|----------------------------------------------------------------------------|
+| <a href="https://github.com/user-attachments/assets/65f7b310-e0c1-4c0d-952c-63763037af24" target="_blank"><img src="https://github.com/user-attachments/assets/65f7b310-e0c1-4c0d-952c-63763037af24" width="960"></a> |
 
 ---
 
@@ -35,18 +44,23 @@ The application is structured based on **Clean Architecture**, separating busine
 ```
 RickAndMorty-SwiftUI/
 │── CompositionRoot/
+│   ├── CharacterDetailFactory.swift
 │   ├── CharacterListFactory.swift
 │── Data/
 │   ├── Cache/
+│   │   ├── CharacterCacheDataSourceType.swift
 │   │   ├── CharacterImageCache.swift
 │   │   ├── CharacterListCacheDataSourceType.swift
+│   │   ├── CompositeCharacterCacheDataSource.swift
 │   │   ├── CompositeCharacterListCacheDataSource.swift
+│   │   ├── InMemoryCharacterCacheDataSource.swift
 │   │   ├── InMemoryCharacterListCacheDataSource.swift
 │   ├── DTOs/
 │   │   ├── CharacterDTO.swift
 │   │   ├── CharacterResponseDTO.swift
 │   │   ├── LocationDTO.swift
 │   ├── Networking/
+│   │   ├── CharacterDetailRemoteDataSource.swift
 │   │   ├── CharacterImageRemoteDataSource.swift
 │   │   ├── Endpoint.swift
 │   │   ├── HTTPClient.swift
@@ -55,6 +69,7 @@ RickAndMorty-SwiftUI/
 │   │   ├── RemoteDataSource.swift
 │   │   ├── RemoteDataSourceType.swift
 │   ├── Repositories/
+│   │   ├── CharacterDetailRepository.swift
 │   │   ├── CharacterImageRepository.swift
 │   │   ├── CharacterRepository.swift
 │   ├── CharacterDomainErrorMapper.swift
@@ -65,20 +80,26 @@ RickAndMorty-SwiftUI/
 │   │   ├── CharacterEntity.swift
 │   │   ├── LocationEntity.swift
 │   ├── Interfaces/
+│   │   ├── CharacterDetailRepositoryType.swift
 │   │   ├── CharacterImageRepositoryType.swift
 │   │   ├── CharacterRepositoryType.swift
 │   ├── UseCases/
 │   │   ├── DownloadCharacterImageUseCase.swift
 │   │   ├── GetAllCharactersUseCase.swift
+│   │   ├── GetCharacterDetailUseCase.swift
 │   ├── CharacterDomainError.swift
 │   ├── CharacterImageError.swift
 │── Infraestructure/
 │   ├── Data/
 │   │   ├── CharacterData.swift
+│   │   ├── CharacterDataMapper.swift
 │   │   ├── CharacterListStorage.swift
 │   │   ├── CharacterListStorageType.swift
+│   │   ├── CharacterStorage.swift
+│   │   ├── CharacterStorageType.swift
 │   │   ├── LocationData.swift
 │   │   ├── LocationDataMapper.swift
+│   │   ├── PersistentCharacterCacheDataSource.swift
 │   │   ├── PersistentCharacterListCacheDataSource.swift
 │   ├── Networking/
 │   │   ├── APIConstants.swift
@@ -86,9 +107,10 @@ RickAndMorty-SwiftUI/
 │   │   ├── URLSessionHTTPCLient.swift
 │   │   ├── URLSessionRequestMaker.swift
 │── Presentation/
+│   │   ├── CharacterDetailViewModel.swift
+│   │   ├── CharacterListDisplayMode.swift
 │   │   ├── CharacterListViewModel.swift
-│   │   ├── CharacterListView.swift
-│   │   ├── AlertModifier.swift
+│   │   ├── CharacterPresentable.swift
 │   │   ├── View+Modifiers.swift
 │   │   ├── CharacterPresentableErrorMapper.swift
 │   │   ├── LocalizedErrorKey.swift
@@ -96,8 +118,18 @@ RickAndMorty-SwiftUI/
 │   ├── ModifierPreview.swift
 │   ├── PreviewData.swift
 │── UI/
-│   ├── BottomNameView.swift
-│   ├── CharacterListItemView.swift
+│   │── Components/
+│   │   ├── AlertModifier.swift
+│   │   ├── BottomNameView.swift
+│   │   ├── CharacterDetailCell.swift
+│   │   ├── CharacterDetailStackCell.swift
+│   │   ├── CharacterGridItemView.swift
+│   │   ├── CharacterImageView.swift
+│   │   ├── CharacterListItemView.swift
+│   │   ├── CharacterListLoadingView.swift
+│   │   ├── CharacterListTypeSwitcherView.swift
+│   ├── CharacterDetailView.swift
+│   ├── CharacterListView.swift
 │   ├── Image+Styles.swift
 │   ├── Font+Styles.swift
 │── Utils/
@@ -161,7 +193,10 @@ The project includes **custom font styles** to ensure a consistent and visually 
 
 ```swift
 extension Font {
-    static let rmCharacterName = Font.system(.caption, design: .rounded)
+    static let rmCharacterNameList = Font.system(.caption, design: .rounded)
+        .weight(.bold)
+    
+    static let rmCharacterNameDetail = Font.system(.title, design: .rounded)
         .weight(.bold)
     
     static let rmLoadingText = Font.system(.headline, design: .rounded)
@@ -172,15 +207,28 @@ extension Font {
     
     static let rmAlertButton = Font.system(.body, design: .rounded)
         .weight(.semibold)
+    
+    static let rmSectionHeader = Font.system(.headline, design: .rounded)
+        .weight(.bold)
+    
+    static let rmDetailTitle = Font.system(.body, design: .rounded)
+        .weight(.semibold)
+    
+    static let rmDetailValue = Font.system(.body, design: .rounded)
+        .weight(.regular)
 }
 ```
 
 These styles are applied across the UI:
 
-- **rmCharacterName**: Used for character names in the character list.
+- **rmCharacterNameList**: Used for character names in the character list.
+- **rmCharacterNameDetail**: Used for the character name in the detail screen.
 - **rmLoadingText**: Used for the "Loading..." text in loading states.
 - **rmAlertTitle**: Used for alert titles.
 - **rmAlertButton**: Used for alert action buttons.
+- **rmSectionHeader**: Used for section headers in the character detail screen.
+- **rmDetailTitle**: Used for detail titles in the character detail screen.
+- **rmDetailValue**: Used for the values displayed in character details.
     
 ---
 
@@ -194,6 +242,7 @@ Additionally:
 - ✅ **Previews are available in both Light Mode and Dark Mode** for necessary cases, ensuring proper UI adaptation.
 - ✅ **Localized previews**: Developers can test how the UI adapts to different languages (English & Spanish) in real-time.
 - ✅ **The AlertModifier also includes a preview**, allowing for easy visualization and adjustments of the custom alert component.
+- ✅ **Reusable components, such as CharacterImageView, include previews demonstrating different states** (expanded, collapsed, with/without overlay), making them easier to test and integrate.
 
 #### Example of a **SwiftUI Preview**:
 
@@ -248,12 +297,17 @@ GET https://rickandmortyapi.com/api/character
 
 ## 🎯 Key Features
 
-- ✅ **Character list with cached images** 
-- ✅ **Efficient image caching with `NSCache`** 
-- ✅ **Local storage with `SwiftData`**  
-- ✅ **Error handling with `Result<T, Error>`**  
-- ✅ **Modular and scalable design**  
-- ✅ **Unit tests covering all use cases except UI tests (planned for future updates)**
+- ✅ **Character list with cached images**
+- ✅ **Efficient image caching with `NSCache`**
+- ✅ **Local storage with `SwiftData`**
+- ✅ **Error handling with `Result<T, Error>`**
+- ✅ **Multi-language support (English & Spanish) using Apple’s latest localization technology (String Catalogs)**
+- ✅ **Two display modes for the character list: List and Grid views**
+- ✅ **Character detail screen displaying key information**
+- ✅ **Custom fonts and reusable UI components for better design consistency**
+- ✅ **Modular and scalable architecture following Clean Architecture & SOLID principles**
+- ✅ **Unit tests covering all use cases (except UI tests and character detail fetching, planned for future updates)**
+- ✅ **Interactive SwiftUI previews for all views, supporting different modes and languages**  
 
 ---
 
@@ -277,14 +331,17 @@ GET https://rickandmortyapi.com/api/character
 
 ## 🔥 Future Enhancements
 
-- 📌 **Add a use case for fetching character details**
-- 📌 **Implement a character detail screen displaying all character information**
-- 📌 **Add unit tests for the presentation layer**
-- 📌 **Add unit tests for the image download use case**
-- 📌 **Implement UI tests**
-- 📌 **Add pagination to the character list**
-- 📌 **Implement a splash screen with animations**
-- 📌 **Refactor API logic into a separate local Swift Package (SPM)**
+-	📌 **Add unit tests for the presentation layer**
+-	📌 **Add unit tests for the image download use case**
+-	📌 **Add unit tests for the character detail use case**
+-	📌 **Implement UI tests**
+-	📌 **Add pagination to the character list**
+-	📌 **Implement a splash screen with animations**
+-	📌 **Refactor API logic into a separate local Swift Package (SPM)**
+-	📌 **Localize character attributes such as status and gender types**
+-	📌 **Enhance location details by combining multiple API services in a dedicated use case**
+-	📌 **Extend episode details retrieval using a similar approach to location details**
+-	📌 **Implement search filters for better character discovery**
 
 ---
 
