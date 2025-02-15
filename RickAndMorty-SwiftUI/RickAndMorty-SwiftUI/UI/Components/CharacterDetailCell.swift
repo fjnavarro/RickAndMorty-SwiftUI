@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CharacterDetailCell: View {
-    let title: String
+    let title: LocalizedStringResource
     var value: String?
     
     var body: some View {
@@ -20,7 +20,7 @@ struct CharacterDetailCell: View {
                 Text(value)
                     .font(.rmDetailValue)
             } else {
-                Text("--")
+                Text("--", comment: "Displayed when no value is available for a character's detail.")
                     .font(.rmDetailValue)
             }
         }
@@ -28,6 +28,8 @@ struct CharacterDetailCell: View {
 }
 
 #Preview {
-    CharacterDetailCell(title: "title", value: "value")
+    CharacterDetailCell(title: LocalizedStringResource("title",
+                                                       comment: "This text is only used for SwiftUI previews and should not be considered for localization."),
+                        value: "value")
         .padding()
 }

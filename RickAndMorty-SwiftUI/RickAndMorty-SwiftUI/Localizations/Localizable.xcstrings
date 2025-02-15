@@ -2,7 +2,8 @@
   "sourceLanguage" : "en",
   "strings" : {
     "--" : {
-
+      "comment" : "Displayed when no value is available for a character's detail.",
+      "shouldTranslate" : false
     },
     "Cancel" : {
       "comment" : "Button to dismiss the alert without taking action.",
@@ -22,7 +23,26 @@
       }
     },
     "Character Info" : {
-
+      "comment" : "Section header for character details.",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Información del personaje"
+          }
+        }
+      }
+    },
+    "Current Location" : {
+      "comment" : "Label for the character's current location in the universe.",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubicación actual"
+          }
+        }
+      }
     },
     "ERROR_CHARACTER_DECODING_FAILED" : {
       "comment" : "Shown when the app fails to parse the response data.",
@@ -109,8 +129,27 @@
         }
       }
     },
+    "Gender" : {
+      "comment" : "Label for the character's gender (e.g., Male, Female, Genderless, Unknown).",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Género"
+          }
+        }
+      }
+    },
     "Grid View" : {
-      "comment" : "Label for the button that switches the character list to a grid layout"
+      "comment" : "Label for the button that switches the character list to a grid layout",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vista de cuadrícula"
+          }
+        }
+      }
     },
     "Hello World!" : {
       "comment" : "This text is only used for SwiftUI previews and should not be considered for localization.",
@@ -121,7 +160,15 @@
       "shouldTranslate" : false
     },
     "List View" : {
-      "comment" : "Label for the button that switches the character list to a list layout."
+      "comment" : "Label for the button that switches the character list to a list layout.",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vista de lista"
+          }
+        }
+      }
     },
     "Loading..." : {
       "comment" : "Displayed while data is being fetched.",
@@ -141,7 +188,15 @@
       }
     },
     "Locations" : {
-
+      "comment" : "Section header for location-related character details.",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubicaciones"
+          }
+        }
+      }
     },
     "OK" : {
       "comment" : "Button to confirm and close the alert.",
@@ -160,6 +215,17 @@
         }
       }
     },
+    "Origin" : {
+      "comment" : "Label for the character's place of origin.",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origen"
+          }
+        }
+      }
+    },
     "Rick and Morty" : {
       "comment" : "Navigation bar title for the character list screen.",
       "localizations" : {
@@ -173,6 +239,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rick y Morty"
+          }
+        }
+      }
+    },
+    "Species" : {
+      "comment" : "Label for the character's species (e.g., Human, Alien).",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Especie"
+          }
+        }
+      }
+    },
+    "Status" : {
+      "comment" : "Label for the character's current status (e.g., Alive, Dead, Unknown).",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estado"
+          }
+        }
+      }
+    },
+    "Type" : {
+      "comment" : "Label for the character's specific type (if available).",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipo"
           }
         }
       }

@@ -25,11 +25,11 @@ final class CharacterDetailViewModel: ObservableObject {
     
     func onAppear() {
         Task {
-            await fetchCharacters()
+            await fetchCharacter()
         }
     }
     
-    private func fetchCharacters() async {
+    private func fetchCharacter() async {
         let result = await getCharacterDetailUseCase.execute(id: character.id)
         
         guard case .success(let character) = result else {

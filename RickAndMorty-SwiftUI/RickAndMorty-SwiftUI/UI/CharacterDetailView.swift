@@ -27,28 +27,34 @@ struct CharacterDetailView: View {
             .frame(maxWidth: .infinity, alignment: .center)
             
             Section {
-                CharacterDetailCell(title: "Status",
+                CharacterDetailCell(title: LocalizedStringResource("Status",
+                                                                   comment: "Label for the character's current status (e.g., Alive, Dead, Unknown)."),
                                     value: viewModel.character.status)
-                CharacterDetailCell(title: "Species",
+                CharacterDetailCell(title: LocalizedStringResource("Species",
+                                                                   comment: "Label for the character's species (e.g., Human, Alien)."),
                                     value: viewModel.character.species)
-                CharacterDetailCell(title: "Gender",
+                CharacterDetailCell(title: LocalizedStringResource("Gender",
+                                                                   comment: "Label for the character's gender (e.g., Male, Female, Genderless, Unknown)."),
                                     value: viewModel.character.gender)
                 if let type = viewModel.character.type, !type.isEmpty {
-                    CharacterDetailCell(title: "Type",
+                    CharacterDetailCell(title: LocalizedStringResource("Type",
+                                                                       comment: "Label for the character's specific type (if available)."),
                                         value: type)
                 }
             } header: {
-                Text("Character Info")
+                Text("Character Info", comment: "Section header for character details.")
                     .font(.rmSectionHeader)
             }
             
             Section {
-                CharacterDetailStackCell(title: "Origin",
+                CharacterDetailStackCell(title: LocalizedStringResource("Origin",
+                                                                        comment: "Label for the character's place of origin."),
                                          value: viewModel.character.origin)
-                CharacterDetailStackCell(title: "Current Location",
+                CharacterDetailStackCell(title: LocalizedStringResource("Current Location",
+                                                                        comment: "Label for the character's current location in the universe."),
                                          value: viewModel.character.location)
             } header: {
-                Text("Locations")
+                Text("Locations", comment: "Section header for location-related character details.")
                     .font(.rmSectionHeader)
             }
         }
@@ -59,6 +65,26 @@ struct CharacterDetailView: View {
     }
 }
 
-#Preview {
+#Preview ("Light mode - EN"){
     CharacterDetailView(viewModel: .preview)
+    .preferredColorScheme(.light)
+    .environment(\.locale, Locale(identifier: "en"))
+}
+
+#Preview ("Dark mode - EN"){
+    CharacterDetailView(viewModel: .preview)
+    .preferredColorScheme(.dark)
+    .environment(\.locale, Locale(identifier: "en"))
+}
+
+#Preview ("Light mode - ES"){
+    CharacterDetailView(viewModel: .preview)
+    .preferredColorScheme(.light)
+    .environment(\.locale, Locale(identifier: "es"))
+}
+
+#Preview ("Dark mode - ES"){
+    CharacterDetailView(viewModel: .preview)
+    .preferredColorScheme(.dark)
+    .environment(\.locale, Locale(identifier: "es"))
 }
