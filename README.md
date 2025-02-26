@@ -259,7 +259,6 @@ Additionally:
 
 - ✅ **Swift 5.9+**
 - ✅ **SwiftUI**
-- ✅ **Combine for data binding**
 - ✅ **Async/Await for concurrency**
 - ✅ **Clean Architecture + SOLID**
 - ✅ **URLSession for networking**
